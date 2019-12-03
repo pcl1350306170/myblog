@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="_1ysv2txS_0 sWeanalh_0 XTM1kTqe_0">
+    <div class="_1Q_izgym_0">
+        <div class="ibY_sXau_0 ps">
+            <div class="_1Dgl7pMn_0"><h1 class="cZCVMzBP_0">16 | 浮点数和定点数（下）：深入理解浮点数到底有什么用？</h1>
+                <div class="_2VF1_VFy_0"><span>徐文浩</span> <span>2019-05-31</span></div>
+                <div class="_2SKlnZlt_0"> <!---->
+                    <div class="_1kh1ihh6_0 _2i1ytqT9_0">
+                        <div class="_3TuZWiOJ_0">
+                            <div class="_2c4hPkl9">
+                                <div data-slate-editor="true" data-key="0" autocorrect="off" spellcheck="false"
+                                     data-gramm="false"
+                                     style="outline: none; white-space: pre-wrap; overflow-wrap: break-word;">
+                                    <div class="se-c05a0e88 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="1"><span data-slate-object="text" data-key="2"><span
+                                            data-slate-leaf="true" data-offset-key="2:0" data-first-offset="true"><span
+                                            data-slate-string="true">上一讲，我们讲了用“浮点数”这样的数据形式，来表示一个不能确定大小的数据范围。浮点数可以大到 </span></span></span><span
+                                            class="se-d76af1f6 se-51bfb824" data-slate-type="inline-katex"
+                                            data-slate-object="inline" data-key="3"><span data-slate-leaf="true"><span
+                                            data-slate-string="true" class="katex"><span class="katex-html"
+                                                                                         aria-hidden="true"><span
+                                            class="base"><span class="strut"
+                                                               style="height:0.72777em;vertical-align:-0.08333em;"></span><span
+                                            class="mord">3</span><span class="mord">.</span><span
+                                            class="mord">4</span><span class="mord">0</span><span class="mspace"
+                                                                                                  style="margin-right:0.2222222222222222em;"></span><span
+                                            class="mbin">×</span><span class="mspace"
+                                                                       style="margin-right:0.2222222222222222em;"></span></span><span
+                                            class="base"><span class="strut"
+                                                               style="height:0.8141079999999999em;vertical-align:0em;"></span><span
+                                            class="mord">1</span><span class="mord"><span class="mord">0</span><span
+                                            class="msupsub"><span class="vlist-t"><span class="vlist-r"><span
+                                            class="vlist" style="height:0.8141079999999999em;"><span
+                                            style="top:-3.063em;margin-right:0.05em;"><span class="pstrut"
+                                                                                            style="height:2.7em;"></span><span
+                                            class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span
+                                            class="mord mtight">3</span><span class="mord mtight">8</span></span></span></span></span></span></span></span></span></span></span></span></span></span><span
+                                            data-slate-object="text" data-key="5"><span data-slate-leaf="true"
+                                                                                        data-offset-key="5:0"
+                                                                                        data-first-offset="true"><span
+                                            data-slate-string="true">，也可以小到 </span></span></span><span
+                                            class="se-d76af1f6 se-51bfb824" data-slate-type="inline-katex"
+                                            data-slate-object="inline" data-key="6"><span data-slate-leaf="true"><span
+                                            data-slate-string="true" class="katex"><span class="katex-html"
+                                                                                         aria-hidden="true"><span
+                                            class="base"><span class="strut"
+                                                               style="height:0.72777em;vertical-align:-0.08333em;"></span><span
+                                            class="mord">1</span><span class="mord">.</span><span
+                                            class="mord">1</span><span class="mord">7</span><span class="mspace"
+                                                                                                  style="margin-right:0.2222222222222222em;"></span><span
+                                            class="mbin">×</span><span class="mspace"
+                                                                       style="margin-right:0.2222222222222222em;"></span></span><span
+                                            class="base"><span class="strut"
+                                                               style="height:0.8141079999999999em;vertical-align:0em;"></span><span
+                                            class="mord">1</span><span class="mord"><span class="mord">0</span><span
+                                            class="msupsub"><span class="vlist-t"><span class="vlist-r"><span
+                                            class="vlist" style="height:0.8141079999999999em;"><span
+                                            style="top:-3.063em;margin-right:0.05em;"><span class="pstrut"
+                                                                                            style="height:2.7em;"></span><span
+                                            class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span
+                                            class="mord mtight">−</span><span class="mord mtight">3</span><span
+                                            class="mord mtight">8</span></span></span></span></span></span></span></span></span></span></span></span></span></span><span
+                                            data-slate-object="text" data-key="8"><span data-slate-leaf="true"
+                                                                                        data-offset-key="8:0"
+                                                                                        data-first-offset="true"><span
+                                            data-slate-string="true"> 这样的数值。同时，我们也发现，其实我们平时写的 0.1、0.2 并不是精确的数值，只是一个近似值。只有 0.5 这样，可以表示成 </span></span></span><span
+                                            class="se-d76af1f6 se-51bfb824" data-slate-type="inline-katex"
+                                            data-slate-object="inline" data-key="9"><span data-slate-leaf="true"><span
+                                            data-slate-string="true" class="katex"><span class="katex-html"
+                                                                                         aria-hidden="true"><span
+                                            class="base"><span class="strut"
+                                                               style="height:0.8141079999999999em;vertical-align:0em;"></span><span
+                                            class="mord"><span class="mord">2</span><span class="msupsub"><span
+                                            class="vlist-t"><span class="vlist-r"><span class="vlist"
+                                                                                        style="height:0.8141079999999999em;"><span
+                                            style="top:-3.063em;margin-right:0.05em;"><span class="pstrut"
+                                                                                            style="height:2.7em;"></span><span
+                                            class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span
+                                            class="mord mtight">−</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span></span></span></span></span></span><span
+                                            data-slate-object="text" data-key="11"><span data-slate-leaf="true"
+                                                                                         data-offset-key="11:0"
+                                                                                         data-first-offset="true"><span
+                                            data-slate-string="true"> 这种形式的，才是一个精确的浮点数。</span></span></span></div>
+                                    <div class="se-9d32f8af " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="12"><span data-slate-object="text" data-key="13"><span
+                                            data-slate-leaf="true" data-offset-key="13:0" data-first-offset="true"><span
+                                            data-slate-string="true">你是不是感到很疑惑，浮点数的近似值究竟是怎么算出来的？浮点数的加法计算又是怎么回事儿？在实践应用中，我们怎么才用好浮点数呢？这一节，我们就一起来看这几个问题。</span></span></span>
+                                    </div>
+                                    <h2 class="se-0ab71c50" data-slate-type="heading" data-slate-object="block"
+                                        data-key="14"><span data-slate-object="text" data-key="15"><span
+                                            data-slate-leaf="true" data-offset-key="15:0" data-first-offset="true"><span
+                                            data-slate-string="true">浮点数的二进制转化</span></span></span></h2>
+                                    <div class="se-8ef06ff2 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="16"><span data-slate-object="text" data-key="17"><span
+                                            data-slate-leaf="true" data-offset-key="17:0" data-first-offset="true"><span
+                                            data-slate-string="true">我们首先来看，十进制的浮点数怎么表示成二进制。</span></span></span></div>
+                                    <div class="se-43a867bf " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="18"><span data-slate-object="text" data-key="19"><span
+                                            data-slate-leaf="true" data-offset-key="19:0" data-first-offset="true"><span
+                                            data-slate-string="true">我们输入一个任意的十进制浮点数，背后都会对应一个二进制表示。比方说，我们输入了一个十进制浮点数 9.1。那么按照之前的讲解，在二进制里面，我们应该把它变成一个“</span></span></span><span
+                                            data-slate-object="text" data-key="20"><span data-slate-leaf="true"
+                                                                                         data-offset-key="20:0"
+                                                                                         data-first-offset="true"><span
+                                            class="se-41ec362d" data-slate-type="bold" data-slate-object="mark"><span
+                                            data-slate-string="true">符号位 s+ 指数位 e+ 有效位数 f</span></span></span></span><span
+                                            data-slate-object="text" data-key="21"><span data-slate-leaf="true"
+                                                                                         data-offset-key="21:0"
+                                                                                         data-first-offset="true"><span
+                                            data-slate-string="true">”的组合。第一步，我们要做的，就是把这个数变成二进制。</span></span></span>
+                                    </div>
+                                    <div class="se-d83010a7 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="22"><span data-slate-object="text" data-key="23"><span
+                                            data-slate-leaf="true" data-offset-key="23:0" data-first-offset="true"><span
+                                            data-slate-string="true">首先，我们把这个数的整数部分，变成一个二进制。这个我们前面讲二进制的时候已经讲过了。这里的 9，换算之后就是 1001。</span></span></span>
+                                    </div>
+                                    <div class="se-95da9e13 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="24"><span data-slate-object="text" data-key="25"><span
+                                            data-slate-leaf="true" data-offset-key="25:0" data-first-offset="true"><span
+                                            data-slate-string="true">接着，我们把对应的小数部分也换算成二进制。小数怎么换成二进制呢？我们先来定义一下，小数的二进制表示是怎么回事。我们拿 0.1001 这样一个二进制小数来举例说明。和上面的整数相反，我们把小数点后的每一位，都表示对应的 2 的 -N 次方。那么 0.1001，转化成十进制就是：</span></span></span>
+                                    </div>
+                                    <div class="se-bf34d7e6 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="26"><span class="se-d76af1f6 se-51bfb824"
+                                                             data-slate-type="inline-katex" data-slate-object="inline"
+                                                             data-key="27"><span data-slate-leaf="true"><span
+                                            data-slate-string="true" class="katex"><span class="katex-html"
+                                                                                         aria-hidden="true"><span
+                                            class="base"><span class="strut"
+                                                               style="height:0.72777em;vertical-align:-0.08333em;"></span><span
+                                            class="mord">1</span><span class="mspace"
+                                                                       style="margin-right:0.2222222222222222em;"></span><span
+                                            class="mbin">×</span><span class="mspace"
+                                                                       style="margin-right:0.2222222222222222em;"></span></span><span
+                                            class="base"><span class="strut"
+                                                               style="height:0.897438em;vertical-align:-0.08333em;"></span><span
+                                            class="mord"><span class="mord">2</span><span class="msupsub"><span
+                                            class="vlist-t"><span class="vlist-r"><span class="vlist"
+                                                                                        style="height:0.8141079999999999em;"><span
+                                            style="top:-3.063em;margin-right:0.05em;"><span class="pstrut"
+                                                                                            style="height:2.7em;"></span><span
+                                            class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span
+                                            class="mord mtight">−</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span><span
+                                            class="mspace" style="margin-right:0.2222222222222222em;"></span><span
+                                            class="mbin">+</span><span class="mspace"
+                                                                       style="margin-right:0.2222222222222222em;"></span></span><span
+                                            class="base"><span class="strut"
+                                                               style="height:0.72777em;vertical-align:-0.08333em;"></span><span
+                                            class="mord">0</span><span class="mspace"
+                                                                       style="margin-right:0.2222222222222222em;"></span><span
+                                            class="mbin">×</span><span class="mspace"
+                                                                       style="margin-right:0.2222222222222222em;"></span></span><span
+                                            class="base"><span class="strut"
+                                                               style="height:0.897438em;vertical-align:-0.08333em;"></span><span
+                                            class="mord"><span class="mord">2</span><span class="msupsub"><span
+                                            class="vlist-t"><span class="vlist-r"><span class="vlist"
+                                                                                        style="height:0.8141079999999999em;"><span
+                                            style="top:-3.063em;margin-right:0.05em;"><span class="pstrut"
+                                                                                            style="height:2.7em;"></span><span
+                                            class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span
+                                            class="mord mtight">−</span><span class="mord mtight">2</span></span></span></span></span></span></span></span></span><span
+                                            class="mspace" style="margin-right:0.2222222222222222em;"></span><span
+                                            class="mbin">+</span><span class="mspace"
+                                                                       style="margin-right:0.2222222222222222em;"></span></span><span
+                                            class="base"><span class="strut"
+                                                               style="height:0.72777em;vertical-align:-0.08333em;"></span><span
+                                            class="mord">0</span><span class="mspace"
+                                                                       style="margin-right:0.2222222222222222em;"></span><span
+                                            class="mbin">×</span><span class="mspace"
+                                                                       style="margin-right:0.2222222222222222em;"></span></span><span
+                                            class="base"><span class="strut"
+                                                               style="height:0.897438em;vertical-align:-0.08333em;"></span><span
+                                            class="mord"><span class="mord">2</span><span class="msupsub"><span
+                                            class="vlist-t"><span class="vlist-r"><span class="vlist"
+                                                                                        style="height:0.8141079999999999em;"><span
+                                            style="top:-3.063em;margin-right:0.05em;"><span class="pstrut"
+                                                                                            style="height:2.7em;"></span><span
+                                            class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span
+                                            class="mord mtight">−</span><span class="mord mtight">3</span></span></span></span></span></span></span></span></span><span
+                                            class="mord">+</span></span></span></span></span></span></div>
+                                    <div class="se-0d18fdec " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="29"><span class="se-d76af1f6 se-51bfb824"
+                                                             data-slate-type="inline-katex" data-slate-object="inline"
+                                                             data-key="30"><span data-slate-leaf="true"><span
+                                            data-slate-string="true" class="katex"><span class="katex-html"
+                                                                                         aria-hidden="true"><span
+                                            class="base"><span class="strut"
+                                                               style="height:0.72777em;vertical-align:-0.08333em;"></span><span
+                                            class="mord">1</span><span class="mspace"
+                                                                       style="margin-right:0.2222222222222222em;"></span><span
+                                            class="mbin">×</span><span class="mspace"
+                                                                       style="margin-right:0.2222222222222222em;"></span></span><span
+                                            class="base"><span class="strut"
+                                                               style="height:0.8141079999999999em;vertical-align:0em;"></span><span
+                                            class="mord"><span class="mord">2</span><span class="msupsub"><span
+                                            class="vlist-t"><span class="vlist-r"><span class="vlist"
+                                                                                        style="height:0.8141079999999999em;"><span
+                                            style="top:-3.063em;margin-right:0.05em;"><span class="pstrut"
+                                                                                            style="height:2.7em;"></span><span
+                                            class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span
+                                            class="mord mtight">−</span><span class="mord mtight">4</span></span></span></span></span></span></span></span></span><span
+                                            class="mspace" style="margin-right:0.2777777777777778em;"></span><span
+                                            class="mrel">=</span><span class="mspace"
+                                                                       style="margin-right:0.2777777777777778em;"></span></span><span
+                                            class="base"><span class="strut"
+                                                               style="height:0.64444em;vertical-align:0em;"></span><span
+                                            class="mord">0</span><span class="mord">.</span><span
+                                            class="mord">5</span><span class="mord">6</span><span
+                                            class="mord">2</span><span class="mord">5</span></span></span></span></span></span>
+                                    </div>
+                                    <div class="se-ee9f3da9 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="32"><span data-slate-object="text" data-key="33"><span
+                                            data-slate-leaf="true" data-offset-key="33:0" data-first-offset="true"><span
+                                            data-slate-string="true">和整数的二进制表示采用“除以 2，然后看余数”的方式相比，小数部分转换成二进制是用一个相似的反方向操作，就是乘以 2，然后看看是否超过 1。如果超过 1，我们就记下 1，并把结果减去 1，进一步循环操作。在这里，我们就会看到，0.1 其实变成了一个无限循环的二进制小数，0.0</span></span></span><span
+                                            data-slate-object="text" data-key="34"><span data-slate-leaf="true"
+                                                                                         data-offset-key="34:0"
+                                                                                         data-first-offset="true"><span
+                                            class="se-be4dd2d4" data-slate-type="primary" data-slate-object="mark"><span
+                                            data-slate-string="true">0011</span></span></span></span><span
+                                            data-slate-object="text" data-key="35"><span data-slate-leaf="true"
+                                                                                         data-offset-key="35:0"
+                                                                                         data-first-offset="true"><span
+                                            data-slate-string="true">0011。这里的“0011”会无限循环下去。</span></span></span></div>
+                                    <div class="se-42c94336 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="37"><span data-slate-object="text" data-key="38"><span
+                                            data-slate-leaf="true" data-offset-key="38:0" data-first-offset="true"><span
+                                            data-slate-string="true">然后，我们把整数部分和小数部分拼接在一起，9.1 这个十进制数就变成了 1001.0</span></span></span><span
+                                            data-slate-object="text" data-key="39"><span data-slate-leaf="true"
+                                                                                         data-offset-key="39:0"
+                                                                                         data-first-offset="true"><span
+                                            class="se-be4dd2d4" data-slate-type="primary" data-slate-object="mark"><span
+                                            data-slate-string="true">0011</span></span></span></span><span
+                                            data-slate-object="text" data-key="40"><span data-slate-leaf="true"
+                                                                                         data-offset-key="40:0"
+                                                                                         data-first-offset="true"><span
+                                            data-slate-string="true">0011…这样一个二进制表示。</span></span></span></div>
+                                    <div class="se-c2de113a " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="41"><span data-slate-object="text" data-key="42"><span
+                                            data-slate-leaf="true" data-offset-key="42:0" data-first-offset="true"><span
+                                            data-slate-string="true">上一讲我们讲过，浮点数其实是用二进制的科学计数法来表示的，所以我们可以把小数点左移三位，这个数就变成了：</span></span></span>
+                                    </div>
+                                    <div class="se-0a6105c9 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="43"><span class="se-d76af1f6 se-51bfb824"
+                                                             data-slate-type="inline-katex" data-slate-object="inline"
+                                                             data-key="44"><span data-slate-leaf="true"><span
+                                            data-slate-string="true" class="katex"><span class="katex-html"
+                                                                                         aria-hidden="true"><span
+                                            class="base"><span class="strut"
+                                                               style="height:0.64444em;vertical-align:0em;"></span><span
+                                            class="mord">1</span><span class="mord">.</span><span
+                                            class="mord">0</span><span class="mord">0</span><span
+                                            class="mord">1</span><span class="mord">0</span></span></span></span></span></span><span
+                                            class="se-d76af1f6 se-51bfb824" data-slate-type="inline-katex"
+                                            data-slate-object="inline" data-key="46"><span data-slate-leaf="true"><span
+                                            data-slate-string="true" class="katex"><span class="katex-html"
+                                                                                         aria-hidden="true"><span
+                                            class="base"><span class="strut"
+                                                               style="height:0.64444em;vertical-align:0em;"></span><span
+                                            class="mord">0</span><span class="mord">0</span><span
+                                            class="mord">1</span><span class="mord">1</span></span></span></span></span></span><span
+                                            class="se-d76af1f6 se-51bfb824" data-slate-type="inline-katex"
+                                            data-slate-object="inline" data-key="48"><span data-slate-leaf="true"><span
+                                            data-slate-string="true" class="katex"><span class="katex-html"
+                                                                                         aria-hidden="true"><span
+                                            class="base"><span class="strut"
+                                                               style="height:0.72777em;vertical-align:-0.08333em;"></span><span
+                                            class="mord">0</span><span class="mord">0</span><span
+                                            class="mord">1</span><span class="mord">1</span><span class="mspace"
+                                                                                                  style="margin-right:0.16666666666666666em;"></span><span
+                                            class="minner">…</span><span class="mspace"
+                                                                         style="margin-right:0.2222222222222222em;"></span><span
+                                            class="mbin">×</span><span class="mspace"
+                                                                       style="margin-right:0.2222222222222222em;"></span></span><span
+                                            class="base"><span class="strut"
+                                                               style="height:0.8141079999999999em;vertical-align:0em;"></span><span
+                                            class="mord"><span class="mord">2</span><span class="msupsub"><span
+                                            class="vlist-t"><span class="vlist-r"><span class="vlist"
+                                                                                        style="height:0.8141079999999999em;"><span
+                                            style="top:-3.063em;margin-right:0.05em;"><span class="pstrut"
+                                                                                            style="height:2.7em;"></span><span
+                                            class="sizing reset-size6 size3 mtight"><span
+                                            class="mord mtight">3</span></span></span></span></span></span></span></span></span></span></span></span></span>
+                                    </div>
+                                    <div class="se-61c7e124 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="50"><span data-slate-object="text" data-key="51"><span
+                                            data-slate-leaf="true" data-offset-key="51:0" data-first-offset="true"><span
+                                            data-slate-string="true">那这个二进制的科学计数法表示，我们就可以对应到了浮点数的格式里了。这里的符号位 s = 0，对应的有效位 f=0010</span></span></span><span
+                                            data-slate-object="text" data-key="52"><span data-slate-leaf="true"
+                                                                                         data-offset-key="52:0"
+                                                                                         data-first-offset="true"><span
+                                            class="se-1b8e8d8e" data-slate-type="bold" data-slate-object="mark"><span
+                                            data-slate-string="true">0011</span></span></span></span><span
+                                            data-slate-object="text" data-key="53"><span data-slate-leaf="true"
+                                                                                         data-offset-key="53:0"
+                                                                                         data-first-offset="true"><span
+                                            data-slate-string="true">0011…。因为 f 最长只有 23 位，那这里“0011”无限循环，最多到 23 位就截止了。于是，f=0010</span></span></span><span
+                                            data-slate-object="text" data-key="54"><span data-slate-leaf="true"
+                                                                                         data-offset-key="54:0"
+                                                                                         data-first-offset="true"><span
+                                            class="se-fa0404b0" data-slate-type="bold" data-slate-object="mark"><span
+                                            data-slate-string="true">0011001100110011</span></span></span></span><span
+                                            data-slate-object="text" data-key="55"><span data-slate-leaf="true"
+                                                                                         data-offset-key="55:0"
+                                                                                         data-first-offset="true"><span
+                                            data-slate-string="true"> </span></span></span><span
+                                            data-slate-object="text" data-key="56"><span data-slate-leaf="true"
+                                                                                         data-offset-key="56:0"
+                                                                                         data-first-offset="true"><span
+                                            class="se-cd23369e" data-slate-type="bold" data-slate-object="mark"><span
+                                            class="se-be4dd2d4" data-slate-type="primary" data-slate-object="mark"><span
+                                            data-slate-string="true">001</span></span></span></span></span><span
+                                            data-slate-object="text" data-key="57"><span data-slate-leaf="true"
+                                                                                         data-offset-key="57:0"
+                                                                                         data-first-offset="true"><span
+                                            data-slate-string="true">。最后的一个“0011”循环中的最后一个“1”会被截断掉。对应的指数为 e，代表的应该是 3。因为指数位有正又有负，所以指数位在 127 之前代表负数，之后代表正数，那 3 其实对应的是加上 127 的偏移量 130，转化成二进制，就是 130，对应的就是指数位的二进制，表示出来就是 1000</span></span></span><span
+                                            data-slate-object="text" data-key="58"><span data-slate-leaf="true"
+                                                                                         data-offset-key="58:0"
+                                                                                         data-first-offset="true"><span
+                                            class="se-d2957d30" data-slate-type="bold" data-slate-object="mark"><span
+                                            data-slate-string="true">0010</span></span></span></span><span
+                                            data-slate-object="text" data-key="59"><span data-slate-leaf="true"
+                                                                                         data-offset-key="59:0"
+                                                                                         data-first-offset="true"><span
+                                            data-slate-string="true">。</span></span></span></div>
+                                    <div class="se-2b8fdcfe " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="61"><span data-slate-object="text" data-key="62"><span
+                                            data-slate-leaf="true" data-offset-key="62:0" data-first-offset="true"><span
+                                            data-slate-string="true">然后，我们把“s+e+f”拼在一起，就可以得到浮点数 9.1 的二进制表示了。最终得到的二进制表示就变成了：</span></span></span>
+                                    </div>
+                                    <div class="se-d6a4477e " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="63"><span data-slate-object="text" data-key="64"><span
+                                            data-slate-leaf="true" data-offset-key="64:0" data-first-offset="true"><span
+                                            data-slate-string="true">01000</span></span></span><span
+                                            data-slate-object="text" data-key="65"><span data-slate-leaf="true"
+                                                                                         data-offset-key="65:0"
+                                                                                         data-first-offset="true"><span
+                                            class="se-5617ac59" data-slate-type="bold" data-slate-object="mark"><span
+                                            data-slate-string="true">0010</span></span></span></span><span
+                                            data-slate-object="text" data-key="66"><span data-slate-leaf="true"
+                                                                                         data-offset-key="66:0"
+                                                                                         data-first-offset="true"><span
+                                            data-slate-string="true"> 0010 </span></span></span><span
+                                            data-slate-object="text" data-key="67"><span data-slate-leaf="true"
+                                                                                         data-offset-key="67:0"
+                                                                                         data-first-offset="true"><span
+                                            class="se-b36eb31e" data-slate-type="bold" data-slate-object="mark"><span
+                                            data-slate-string="true">0011001100110011</span></span></span></span><span
+                                            data-slate-object="text" data-key="68"><span data-slate-leaf="true"
+                                                                                         data-offset-key="68:0"
+                                                                                         data-first-offset="true"><span
+                                            data-slate-string="true"> </span></span></span><span
+                                            data-slate-object="text" data-key="69"><span data-slate-leaf="true"
+                                                                                         data-offset-key="69:0"
+                                                                                         data-first-offset="true"><span
+                                            class="se-978d6ef4" data-slate-type="bold" data-slate-object="mark"><span
+                                            class="se-be4dd2d4" data-slate-type="primary" data-slate-object="mark"><span
+                                            data-slate-string="true">001</span></span></span></span></span></div>
+                                    <div class="se-202f4c11 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="70"><span data-slate-object="text" data-key="71"><span
+                                            data-slate-leaf="true" data-offset-key="71:0" data-first-offset="true"><span
+                                            data-slate-string="true">如果我们再把这个浮点数表示换算成十进制， 实际准确的值是 9.09999942779541015625。相信你现在应该不会感觉奇怪了。</span></span></span>
+                                    </div>
+                                    <div class="se-593f88f5 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="72"><span data-slate-object="text" data-key="73"><span
+                                            data-slate-leaf="true" data-offset-key="73:0" data-first-offset="true"><span
+                                            data-slate-string="true">我在这里放一个</span></span></span><a
+                                            data-slate-type="link" data-slate-object="inline" data-key="74"
+                                            class="se-49b9dfc7 se-c2388b5b"><span data-slate-object="text"
+                                                                                  data-key="75"><span
+                                            data-slate-leaf="true" data-offset-key="75:0" data-first-offset="true"><span
+                                            data-slate-string="true">链接</span></span></span></a><span
+                                            data-slate-object="text" data-key="76"><span data-slate-leaf="true"
+                                                                                         data-offset-key="76:0"
+                                                                                         data-first-offset="true"><span
+                                            data-slate-string="true">，这里提供了直接交互式地设置符号位、指数位和有效位数的操作。你可以直观地看到，32 位浮点数每一个 bit 的变化，对应的有效位数、指数会变成什么样子以及最后的十进制的计算结果是怎样的。</span></span></span>
+                                    </div>
+                                    <div class="se-159c53d6 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="77"><span data-slate-object="text" data-key="78"><span
+                                            data-slate-leaf="true" data-offset-key="78:0" data-first-offset="true"><span
+                                            data-slate-string="true">这个也解释了为什么，在上一讲一开始，0.3+0.6=0.899999。因为 0.3 转化成浮点数之后，和这里的 9.1 一样，并不是精确的 0.3 了，0.6 和 0.9 也是一样的，最后的计算会出现精度问题。</span></span></span>
+                                    </div>
+                                    <h2 class="se-bdc8d598" data-slate-type="heading" data-slate-object="block"
+                                        data-key="79"><span data-slate-object="text" data-key="80"><span
+                                            data-slate-leaf="true" data-offset-key="80:0" data-first-offset="true"><span
+                                            data-slate-string="true">浮点数的加法和精度损失</span></span></span></h2>
+                                    <div class="se-3acaaec4 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="81"><span data-slate-object="text" data-key="82"><span
+                                            data-slate-leaf="true" data-offset-key="82:0" data-first-offset="true"><span
+                                            data-slate-string="true">搞清楚了怎么把一个十进制的数值，转化成 IEEE-754 标准下的浮点数表示，我们现在来看一看浮点数的加法是怎么进行的。其实原理也很简单，你记住六个字就行了，那就是</span></span></span><span
+                                            data-slate-object="text" data-key="83"><span data-slate-leaf="true"
+                                                                                         data-offset-key="83:0"
+                                                                                         data-first-offset="true"><span
+                                            class="se-72c3be8b" data-slate-type="bold" data-slate-object="mark"><span
+                                            data-slate-string="true">先对齐、再计算</span></span></span></span><span
+                                            data-slate-object="text" data-key="84"><span data-slate-leaf="true"
+                                                                                         data-offset-key="84:0"
+                                                                                         data-first-offset="true"><span
+                                            data-slate-string="true">。</span></span></span></div>
+                                    <div class="se-3ff8b6b0 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="85"><span data-slate-object="text" data-key="86"><span
+                                            data-slate-leaf="true" data-offset-key="86:0" data-first-offset="true"><span
+                                            data-slate-string="true">两个浮点数的指数位可能是不一样的，所以我们要把两个的指数位，变成一样的，然后只去计算有效位的加法就好了。</span></span></span>
+                                    </div>
+                                    <div class="se-06127a9a " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="87"><span data-slate-object="text" data-key="88"><span
+                                            data-slate-leaf="true" data-offset-key="88:0" data-first-offset="true"><span
+                                            data-slate-string="true">比如 0.5，表示成浮点数，对应的指数位是 -1，有效位是 00…（后面全是 0，记住 f 前默认有一个 1）。0.125 表示成浮点数，对应的指数位是 -3，有效位也还是 00…（后面全是 0，记住 f 前默认有一个 1）。</span></span></span>
+                                    </div>
+                                    <div class="se-382daa62 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="89"><span data-slate-object="text" data-key="90"><span
+                                            data-slate-leaf="true" data-offset-key="90:0" data-first-offset="true"><span
+                                            data-slate-string="true">那我们在计算 0.5+0.125 的浮点数运算的时候，首先要把两个的指数位对齐，也就是把指数位都统一成两个其中较大的 -1。对应的有效位 1.00…也要对应右移两位，因为 f 前面有一个默认的 1，所以就会变成 0.01。然后我们计算两者相加的有效位 1.f，就变成了有效位 1.01，而指数位是 -1，这样就得到了我们想要的加法后的结果。</span></span></span>
+                                    </div>
+                                    <div class="se-401024dc " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="91"><span data-slate-object="text" data-key="92"><span
+                                            data-slate-leaf="true" data-offset-key="92:0" data-first-offset="true"><span
+                                            data-slate-string="true">实现这样一个加法，也只需要位移。和整数加法类似的半加器和全加器的方法就能够实现，在电路层面，也并没有引入太多新的复杂性。</span></span></span>
+                                    </div>
+                                    <div class="se-2a083ece " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="94"><span data-slate-object="text" data-key="95"><span
+                                            data-slate-leaf="true" data-offset-key="95:0" data-first-offset="true"><span
+                                            data-slate-string="true">同样的，你可以用刚才那个链接来试试看，我们这个加法计算的浮点数的结果是不是正确。</span></span></span>
+                                    </div>
+                                    <div class="se-7b5ba236 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="96"><span data-slate-object="text" data-key="97"><span
+                                            data-slate-leaf="true" data-offset-key="97:0" data-first-offset="true"><span
+                                            data-slate-string="true">回到浮点数的加法过程，你会发现，其中指数位较小的数，需要在有效位进行右移，在右移的过程中，最右侧的有效位就被丢弃掉了。这会导致对应的指数位较小的数，在加法发生之前，就</span></span></span><span
+                                            data-slate-object="text" data-key="98"><span data-slate-leaf="true"
+                                                                                         data-offset-key="98:0"
+                                                                                         data-first-offset="true"><span
+                                            class="se-850b1add" data-slate-type="bold" data-slate-object="mark"><span
+                                            data-slate-string="true">丢失精度</span></span></span></span><span
+                                            data-slate-object="text" data-key="99"><span data-slate-leaf="true"
+                                                                                         data-offset-key="99:0"
+                                                                                         data-first-offset="true"><span
+                                            data-slate-string="true">。两个相加数的指数位差的越大，位移的位数越大，可能丢失的精度也就越大。当然，也有可能你的运气非常好，右移丢失的有效位都是 0。这种情况下，对应的加法虽然丢失了需要加的数字的精度，但是因为对应的值都是 0，实际的加法的数值结果不会有精度损失。</span></span></span>
+                                    </div>
+                                    <div class="se-d3c849b6 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="100"><span data-slate-object="text" data-key="101"><span
+                                            data-slate-leaf="true" data-offset-key="101:0"
+                                            data-first-offset="true"><span data-slate-string="true">32 位浮点数的有效位长度一共只有 23 位，如果两个数的指数位差出 23 位，较小的数右移 24 位之后，所有的有效位就都丢失了。这也就意味着，虽然浮点数可以表示上到 </span></span></span><span
+                                            class="se-d76af1f6 se-51bfb824" data-slate-type="inline-katex"
+                                            data-slate-object="inline" data-key="102"><span data-slate-leaf="true"><span
+                                            data-slate-string="true" class="katex"><span class="katex-html"
+                                                                                         aria-hidden="true"><span
+                                            class="base"><span class="strut"
+                                                               style="height:0.72777em;vertical-align:-0.08333em;"></span><span
+                                            class="mord">3</span><span class="mord">.</span><span
+                                            class="mord">4</span><span class="mord">0</span><span class="mspace"
+                                                                                                  style="margin-right:0.2222222222222222em;"></span><span
+                                            class="mbin">×</span><span class="mspace"
+                                                                       style="margin-right:0.2222222222222222em;"></span></span><span
+                                            class="base"><span class="strut"
+                                                               style="height:0.8141079999999999em;vertical-align:0em;"></span><span
+                                            class="mord">1</span><span class="mord"><span class="mord">0</span><span
+                                            class="msupsub"><span class="vlist-t"><span class="vlist-r"><span
+                                            class="vlist" style="height:0.8141079999999999em;"><span
+                                            style="top:-3.063em;margin-right:0.05em;"><span class="pstrut"
+                                                                                            style="height:2.7em;"></span><span
+                                            class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span
+                                            class="mord mtight">3</span><span class="mord mtight">8</span></span></span></span></span></span></span></span></span></span></span></span></span></span><span
+                                            data-slate-object="text" data-key="104"><span data-slate-leaf="true"
+                                                                                          data-offset-key="104:0"
+                                                                                          data-first-offset="true"><span
+                                            data-slate-string="true">，下到 </span></span></span><span
+                                            class="se-d76af1f6 se-51bfb824" data-slate-type="inline-katex"
+                                            data-slate-object="inline" data-key="105"><span data-slate-leaf="true"><span
+                                            data-slate-string="true" class="katex"><span class="katex-html"
+                                                                                         aria-hidden="true"><span
+                                            class="base"><span class="strut"
+                                                               style="height:0.72777em;vertical-align:-0.08333em;"></span><span
+                                            class="mord">1</span><span class="mord">.</span><span
+                                            class="mord">1</span><span class="mord">7</span><span class="mspace"
+                                                                                                  style="margin-right:0.2222222222222222em;"></span><span
+                                            class="mbin">×</span><span class="mspace"
+                                                                       style="margin-right:0.2222222222222222em;"></span></span><span
+                                            class="base"><span class="strut"
+                                                               style="height:0.8141079999999999em;vertical-align:0em;"></span><span
+                                            class="mord">1</span><span class="mord"><span class="mord">0</span><span
+                                            class="msupsub"><span class="vlist-t"><span class="vlist-r"><span
+                                            class="vlist" style="height:0.8141079999999999em;"><span
+                                            style="top:-3.063em;margin-right:0.05em;"><span class="pstrut"
+                                                                                            style="height:2.7em;"></span><span
+                                            class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span
+                                            class="mord mtight">−</span><span class="mord mtight">3</span><span
+                                            class="mord mtight">8</span></span></span></span></span></span></span></span></span></span></span></span></span></span><span
+                                            data-slate-object="text" data-key="107"><span data-slate-leaf="true"
+                                                                                          data-offset-key="107:0"
+                                                                                          data-first-offset="true"><span
+                                            data-slate-string="true"> 这样的数值范围。但是在实际计算的时候，只要两个数，差出 </span></span></span><span
+                                            class="se-d76af1f6 se-51bfb824" data-slate-type="inline-katex"
+                                            data-slate-object="inline" data-key="108"><span data-slate-leaf="true"><span
+                                            data-slate-string="true" class="katex"><span class="katex-html"
+                                                                                         aria-hidden="true"><span
+                                            class="base"><span class="strut"
+                                                               style="height:0.8141079999999999em;vertical-align:0em;"></span><span
+                                            class="mord"><span class="mord">2</span><span class="msupsub"><span
+                                            class="vlist-t"><span class="vlist-r"><span class="vlist"
+                                                                                        style="height:0.8141079999999999em;"><span
+                                            style="top:-3.063em;margin-right:0.05em;"><span class="pstrut"
+                                                                                            style="height:2.7em;"></span><span
+                                            class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span
+                                            class="mord mtight">2</span><span class="mord mtight">4</span></span></span></span></span></span></span></span></span></span></span></span></span></span><span
+                                            data-slate-object="text" data-key="110"><span data-slate-leaf="true"
+                                                                                          data-offset-key="110:0"
+                                                                                          data-first-offset="true"><span
+                                            data-slate-string="true">，也就是差不多 1600 万倍，那这两个数相加之后，结果完全不会变化。</span></span></span>
+                                    </div>
+                                    <div class="se-9d819875 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="111"><span data-slate-object="text" data-key="112"><span
+                                            data-slate-leaf="true" data-offset-key="112:0"
+                                            data-first-offset="true"><span data-slate-string="true">你可以试一下，我下面用一个简单的 Java 程序，让一个值为 2000 万的 32 位浮点数和 1 相加，你会发现，+1 这个过程因为精度损失，被“完全抛弃”了。</span></span></span>
+                                    </div>
+                                    <div class="se-563a6097 se-355789dd" data-slate-type="pre" data-slate-object="block"
+                                         data-key="113" data-code-language="cpp">
+                                        <div class="se-5f6cffc9"></div>
+                                        <div class="se-40511c12 ps">
+                                            <div class="se-0b5bd092 se-635bf64e" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="114"><span data-slate-object="text"
+                                                                                                data-key="115"><span
+                                                    data-slate-leaf="true" data-offset-key="115:0"
+                                                    data-first-offset="true"><span class=" gkhl-keyword"
+                                                                                   data-slate-object="annotation"
+                                                                                   data-annotation-key="gkann_4163009417"
+                                                                                   data-annotation-type="annotation"><span
+                                                    data-slate-string="true">public</span></span></span><span
+                                                    data-slate-leaf="true" data-offset-key="115:1"><span
+                                                    data-slate-string="true"> </span></span><span data-slate-leaf="true"
+                                                                                                  data-offset-key="115:2"><span
+                                                    class=" gkhl-keyword" data-slate-object="annotation"
+                                                    data-annotation-key="gkann_9950897127"
+                                                    data-annotation-type="annotation"><span class=" gkhl-class"
+                                                                                            data-slate-object="annotation"
+                                                                                            data-annotation-key="gkann_0722449291"
+                                                                                            data-annotation-type="annotation"><span
+                                                    data-slate-string="true">class</span></span></span></span><span
+                                                    data-slate-leaf="true" data-offset-key="115:3"><span
+                                                    class=" gkhl-class" data-slate-object="annotation"
+                                                    data-annotation-key="gkann_0722449291"
+                                                    data-annotation-type="annotation"><span
+                                                    data-slate-string="true"> </span></span></span><span
+                                                    data-slate-leaf="true" data-offset-key="115:4"><span
+                                                    class=" gkhl-title" data-slate-object="annotation"
+                                                    data-annotation-key="gkann_5782496299"
+                                                    data-annotation-type="annotation"><span class=" gkhl-class"
+                                                                                            data-slate-object="annotation"
+                                                                                            data-annotation-key="gkann_0722449291"
+                                                                                            data-annotation-type="annotation"><span
+                                                    data-slate-string="true">FloatPrecision</span></span></span></span><span
+                                                    data-slate-leaf="true" data-offset-key="115:5"><span
+                                                    class=" gkhl-class" data-slate-object="annotation"
+                                                    data-annotation-key="gkann_0722449291"
+                                                    data-annotation-type="annotation"><span
+                                                    data-slate-string="true"> {</span></span></span></span></div>
+                                            <div class="se-0b5bd092 se-635bf64e" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="116"><span data-slate-object="text"
+                                                                                                data-key="117"><span
+                                                    data-slate-leaf="true" data-offset-key="117:0"
+                                                    data-first-offset="true"><span
+                                                    data-slate-string="true">  </span></span><span
+                                                    data-slate-leaf="true" data-offset-key="117:1"><span
+                                                    class=" gkhl-keyword" data-slate-object="annotation"
+                                                    data-annotation-key="gkann_8981114139"
+                                                    data-annotation-type="annotation"><span class=" gkhl-function"
+                                                                                            data-slate-object="annotation"
+                                                                                            data-annotation-key="gkann_9007813391"
+                                                                                            data-annotation-type="annotation"><span
+                                                    data-slate-string="true">public</span></span></span></span><span
+                                                    data-slate-leaf="true" data-offset-key="117:2"><span
+                                                    class=" gkhl-function" data-slate-object="annotation"
+                                                    data-annotation-key="gkann_9007813391"
+                                                    data-annotation-type="annotation"><span
+                                                    data-slate-string="true"> </span></span></span><span
+                                                    data-slate-leaf="true" data-offset-key="117:3"><span
+                                                    class=" gkhl-function" data-slate-object="annotation"
+                                                    data-annotation-key="gkann_9007813391"
+                                                    data-annotation-type="annotation"><span class=" gkhl-keyword"
+                                                                                            data-slate-object="annotation"
+                                                                                            data-annotation-key="gkann_0854585275"
+                                                                                            data-annotation-type="annotation"><span
+                                                    data-slate-string="true">static</span></span></span></span><span
+                                                    data-slate-leaf="true" data-offset-key="117:4"><span
+                                                    class=" gkhl-function" data-slate-object="annotation"
+                                                    data-annotation-key="gkann_9007813391"
+                                                    data-annotation-type="annotation"><span
+                                                    data-slate-string="true"> </span></span></span><span
+                                                    data-slate-leaf="true" data-offset-key="117:5"><span
+                                                    class=" gkhl-function" data-slate-object="annotation"
+                                                    data-annotation-key="gkann_9007813391"
+                                                    data-annotation-type="annotation"><span class=" gkhl-keyword"
+                                                                                            data-slate-object="annotation"
+                                                                                            data-annotation-key="gkann_8318381481"
+                                                                                            data-annotation-type="annotation"><span
+                                                    data-slate-string="true">void</span></span></span></span><span
+                                                    data-slate-leaf="true" data-offset-key="117:6"><span
+                                                    class=" gkhl-function" data-slate-object="annotation"
+                                                    data-annotation-key="gkann_9007813391"
+                                                    data-annotation-type="annotation"><span
+                                                    data-slate-string="true"> </span></span></span><span
+                                                    data-slate-leaf="true" data-offset-key="117:7"><span
+                                                    class=" gkhl-function" data-slate-object="annotation"
+                                                    data-annotation-key="gkann_9007813391"
+                                                    data-annotation-type="annotation"><span class=" gkhl-title"
+                                                                                            data-slate-object="annotation"
+                                                                                            data-annotation-key="gkann_2749139701"
+                                                                                            data-annotation-type="annotation"><span
+                                                    data-slate-string="true">main</span></span></span></span><span
+                                                    data-slate-leaf="true" data-offset-key="117:8"><span
+                                                    class=" gkhl-params" data-slate-object="annotation"
+                                                    data-annotation-key="gkann_0591501731"
+                                                    data-annotation-type="annotation"><span class=" gkhl-function"
+                                                                                            data-slate-object="annotation"
+                                                                                            data-annotation-key="gkann_9007813391"
+                                                                                            data-annotation-type="annotation"><span
+                                                    data-slate-string="true">(String[] args)</span></span></span></span><span
+                                                    data-slate-leaf="true" data-offset-key="117:9"><span
+                                                    class=" gkhl-function" data-slate-object="annotation"
+                                                    data-annotation-key="gkann_9007813391"
+                                                    data-annotation-type="annotation"><span
+                                                    data-slate-string="true"> </span></span></span><span
+                                                    data-slate-leaf="true" data-offset-key="117:10"><span
+                                                    data-slate-string="true">{</span></span></span></div>
+                                            <div class="se-0b5bd092 se-635bf64e" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="118"><span data-slate-object="text"
+                                                                                                data-key="119"><span
+                                                    data-slate-leaf="true" data-offset-key="119:0"
+                                                    data-first-offset="true"><span data-slate-string="true">    </span></span><span
+                                                    data-slate-leaf="true" data-offset-key="119:1"><span
+                                                    class=" gkhl-keyword" data-slate-object="annotation"
+                                                    data-annotation-key="gkann_5333209940"
+                                                    data-annotation-type="annotation"><span data-slate-string="true">float</span></span></span><span
+                                                    data-slate-leaf="true" data-offset-key="119:2"><span
+                                                    data-slate-string="true"> a = </span></span><span
+                                                    data-slate-leaf="true" data-offset-key="119:3"><span
+                                                    class=" gkhl-number" data-slate-object="annotation"
+                                                    data-annotation-key="gkann_7581274834"
+                                                    data-annotation-type="annotation"><span data-slate-string="true">20000000.0f</span></span></span><span
+                                                    data-slate-leaf="true" data-offset-key="119:4"><span
+                                                    data-slate-string="true">;</span></span></span></div>
+                                            <div class="se-0b5bd092 se-635bf64e" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="120"><span data-slate-object="text"
+                                                                                                data-key="121"><span
+                                                    data-slate-leaf="true" data-offset-key="121:0"
+                                                    data-first-offset="true"><span data-slate-string="true">    </span></span><span
+                                                    data-slate-leaf="true" data-offset-key="121:1"><span
+                                                    class=" gkhl-keyword" data-slate-object="annotation"
+                                                    data-annotation-key="gkann_4337186988"
+                                                    data-annotation-type="annotation"><span data-slate-string="true">float</span></span></span><span
+                                                    data-slate-leaf="true" data-offset-key="121:2"><span
+                                                    data-slate-string="true"> b = </span></span><span
+                                                    data-slate-leaf="true" data-offset-key="121:3"><span
+                                                    class=" gkhl-number" data-slate-object="annotation"
+                                                    data-annotation-key="gkann_7555723695"
+                                                    data-annotation-type="annotation"><span data-slate-string="true">1.0f</span></span></span><span
+                                                    data-slate-leaf="true" data-offset-key="121:4"><span
+                                                    data-slate-string="true">;</span></span></span></div>
+                                            <div class="se-0b5bd092 se-635bf64e" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="122"><span data-slate-object="text"
+                                                                                                data-key="123"><span
+                                                    data-slate-leaf="true" data-offset-key="123:0"
+                                                    data-first-offset="true"><span data-slate-string="true">    </span></span><span
+                                                    data-slate-leaf="true" data-offset-key="123:1"><span
+                                                    class=" gkhl-keyword" data-slate-object="annotation"
+                                                    data-annotation-key="gkann_0789823207"
+                                                    data-annotation-type="annotation"><span data-slate-string="true">float</span></span></span><span
+                                                    data-slate-leaf="true" data-offset-key="123:2"><span
+                                                    data-slate-string="true"> c = a + b;</span></span></span></div>
+                                            <div class="se-0b5bd092 se-635bf64e" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="124"><span data-slate-object="text"
+                                                                                                data-key="125"><span
+                                                    data-slate-leaf="true" data-offset-key="125:0"
+                                                    data-first-offset="true"><span data-slate-string="true">    System.out.println(</span></span><span
+                                                    data-slate-leaf="true" data-offset-key="125:1"><span
+                                                    class=" gkhl-string" data-slate-object="annotation"
+                                                    data-annotation-key="gkann_9144360121"
+                                                    data-annotation-type="annotation"><span data-slate-string="true">"c is "</span></span></span><span
+                                                    data-slate-leaf="true" data-offset-key="125:2"><span
+                                                    data-slate-string="true"> + c);</span></span></span></div>
+                                            <div class="se-0b5bd092 se-635bf64e" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="126"><span data-slate-object="text"
+                                                                                                data-key="127"><span
+                                                    data-slate-leaf="true" data-offset-key="127:0"
+                                                    data-first-offset="true"><span data-slate-string="true">    </span></span><span
+                                                    data-slate-leaf="true" data-offset-key="127:1"><span
+                                                    class=" gkhl-keyword" data-slate-object="annotation"
+                                                    data-annotation-key="gkann_5765435014"
+                                                    data-annotation-type="annotation"><span data-slate-string="true">float</span></span></span><span
+                                                    data-slate-leaf="true" data-offset-key="127:2"><span
+                                                    data-slate-string="true"> d = c - a;</span></span></span></div>
+                                            <div class="se-0b5bd092 se-635bf64e" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="128"><span data-slate-object="text"
+                                                                                                data-key="129"><span
+                                                    data-slate-leaf="true" data-offset-key="129:0"
+                                                    data-first-offset="true"><span data-slate-string="true">    System.out.println(</span></span><span
+                                                    data-slate-leaf="true" data-offset-key="129:1"><span
+                                                    class=" gkhl-string" data-slate-object="annotation"
+                                                    data-annotation-key="gkann_0926089799"
+                                                    data-annotation-type="annotation"><span data-slate-string="true">"d is "</span></span></span><span
+                                                    data-slate-leaf="true" data-offset-key="129:2"><span
+                                                    data-slate-string="true"> + d);</span></span></span></div>
+                                            <div class="se-0b5bd092 se-635bf64e" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="130"><span data-slate-object="text"
+                                                                                                data-key="131"><span
+                                                    data-slate-leaf="true" data-offset-key="131:0"
+                                                    data-first-offset="true"><span
+                                                    data-slate-string="true">  }</span></span></span></div>
+                                            <div class="se-0b5bd092 se-635bf64e" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="132"><span data-slate-object="text"
+                                                                                                data-key="133"><span
+                                                    data-slate-leaf="true" data-offset-key="133:0"
+                                                    data-first-offset="true"><span
+                                                    data-slate-string="true">}</span></span></span></div>
+                                            <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+                                                <div class="ps__thumb-x" tabindex="0"
+                                                     style="left: 0px; width: 0px;"></div>
+                                            </div>
+                                            <div class="ps__rail-y" style="top: 0px; right: 0px;">
+                                                <div class="ps__thumb-y" tabindex="0"
+                                                     style="top: 0px; height: 0px;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="se-6c2655b7 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="134"><span data-slate-object="text" data-key="135"><span
+                                            data-slate-leaf="true" data-offset-key="135:0"
+                                            data-first-offset="true"><span
+                                            data-slate-string="true">对应的输出结果就是：</span></span></span></div>
+                                    <div class="se-3bc20266 se-d6780885" data-slate-type="pre" data-slate-object="block"
+                                         data-key="136">
+                                        <div class="se-014b4427"></div>
+                                        <div class="se-4b11284c ps">
+                                            <div class="se-0b5bd092 se-635bf64e" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="137"><span data-slate-object="text"
+                                                                                                data-key="138"><span
+                                                    data-slate-leaf="true" data-offset-key="138:0"
+                                                    data-first-offset="true"><span
+                                                    data-slate-string="true">c is 2.0E7</span></span></span></div>
+                                            <div class="se-0b5bd092 se-635bf64e" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="139"><span data-slate-object="text"
+                                                                                                data-key="140"><span
+                                                    data-slate-leaf="true" data-offset-key="140:0"
+                                                    data-first-offset="true"><span
+                                                    data-slate-string="true">d is 0.0</span></span></span></div>
+                                            <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+                                                <div class="ps__thumb-x" tabindex="0"
+                                                     style="left: 0px; width: 0px;"></div>
+                                            </div>
+                                            <div class="ps__rail-y" style="top: 0px; right: 0px;">
+                                                <div class="ps__thumb-y" tabindex="0"
+                                                     style="top: 0px; height: 0px;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h2 class="se-227d112f" data-slate-type="heading" data-slate-object="block"
+                                        data-key="141"><span data-slate-object="text" data-key="142"><span
+                                            data-slate-leaf="true" data-offset-key="142:0"
+                                            data-first-offset="true"><span
+                                            data-slate-string="true">Kahan Summation 算法</span></span></span></h2>
+                                    <div class="se-28e26540 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="143"><span data-slate-object="text" data-key="144"><span
+                                            data-slate-leaf="true" data-offset-key="144:0"
+                                            data-first-offset="true"><span data-slate-string="true">那么，我们有没有什么办法来解决这个精度丢失问题呢？虽然我们在计算浮点数的时候，常常可以容忍一定的精度损失，但是像上面那样，如果我们连续加 2000 万个 1，2000 万的数值都会被精度损失丢掉了，就会影响我们的计算结果。</span></span></span>
+                                    </div>
+                                    <div class="se-223b0279 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="145"><span data-slate-object="text" data-key="146"><span
+                                            data-slate-leaf="true" data-offset-key="146:0"
+                                            data-first-offset="true"><span data-slate-string="true">一个常见的应用场景是，在一些“积少成多”的计算过程中，比如在机器学习中，我们经常要计算海量样本计算出来的梯度或者 loss，于是会出现几亿个浮点数的相加。每个浮点数可能都差不多大，但是随着累积值的越来越大，就会出现“大数吃小数”的情况。</span></span></span>
+                                    </div>
+                                    <div class="se-02d91983 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="147"><span data-slate-object="text" data-key="148"><span
+                                            data-slate-leaf="true" data-offset-key="148:0"
+                                            data-first-offset="true"><span data-slate-string="true">我们可以做一个简单的实验，用一个循环相加 2000 万个 1.0f，最终的结果会是 1600 万左右，而不是 2000 万。这是因为，加到 1600 万之后的加法因为精度丢失都没有了。这个代码比起上面的使用 2000 万来加 1.0 更具有现实意义。</span></span></span>
+                                    </div>
+                                    <div class="se-d5c32ebf se-91f4728b" data-slate-type="pre" data-slate-object="block"
+                                         data-key="149">
+                                        <div class="se-96277f6e"></div>
+                                        <div class="se-f7536fa0 ps">
+                                            <div class="se-0b5bd092 se-635bf64e" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="150"><span data-slate-object="text"
+                                                                                                data-key="151"><span
+                                                    data-slate-leaf="true" data-offset-key="151:0"
+                                                    data-first-offset="true"><span data-slate-string="true">public class FloatPrecision {</span></span></span>
+                                            </div>
+                                            <div class="se-0b5bd092 se-635bf64e" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="152"><span data-slate-object="text"
+                                                                                                data-key="153"><span
+                                                    data-slate-leaf="true" data-offset-key="153:0"
+                                                    data-first-offset="true"><span data-slate-string="true">  public static void main(String[] args) {</span></span></span>
+                                            </div>
+                                            <div class="se-0b5bd092 se-635bf64e" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="154"><span data-slate-object="text"
+                                                                                                data-key="155"><span
+                                                    data-slate-leaf="true" data-offset-key="155:0"
+                                                    data-first-offset="true"><span data-slate-string="true">    float sum = 0.0f;</span></span></span>
+                                            </div>
+                                            <div class="se-0b5bd092 se-635bf64e" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="156"><span data-slate-object="text"
+                                                                                                data-key="157"><span
+                                                    data-slate-leaf="true" data-offset-key="157:0"
+                                                    data-first-offset="true"><span data-slate-string="true">    for (int i = 0; i &lt; 20000000; i++) {</span></span></span>
+                                            </div>
+                                            <div class="se-0b5bd092 se-635bf64e" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="158"><span data-slate-object="text"
+                                                                                                data-key="159"><span
+                                                    data-slate-leaf="true" data-offset-key="159:0"
+                                                    data-first-offset="true"><span data-slate-string="true">      float x = 1.0f;</span></span></span>
+                                            </div>
+                                            <div class="se-0b5bd092 se-635bf64e" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="160"><span data-slate-object="text"
+                                                                                                data-key="161"><span
+                                                    data-slate-leaf="true" data-offset-key="161:0"
+                                                    data-first-offset="true"><span data-slate-string="true">      sum += x;      </span></span></span>
+                                            </div>
+                                            <div class="se-0b5bd092 se-635bf64e" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="162"><span data-slate-object="text"
+                                                                                                data-key="163"><span
+                                                    data-slate-leaf="true" data-offset-key="163:0"
+                                                    data-first-offset="true"><span data-slate-string="true">    }</span></span></span>
+                                            </div>
+                                            <div class="se-0b5bd092 se-635bf64e" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="164"><span data-slate-object="text"
+                                                                                                data-key="165"><span
+                                                    data-slate-leaf="true" data-offset-key="165:0"
+                                                    data-first-offset="true"><span data-slate-string="true">    System.out.println("sum is " + sum);   </span></span></span>
+                                            </div>
+                                            <div class="se-0b5bd092 se-635bf64e" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="166"><span data-slate-object="text"
+                                                                                                data-key="167"><span
+                                                    data-slate-leaf="true" data-offset-key="167:0"
+                                                    data-first-offset="true"><span data-slate-string="true">  }  </span></span></span>
+                                            </div>
+                                            <div class="se-0b5bd092 se-635bf64e" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="168"><span data-slate-object="text"
+                                                                                                data-key="169"><span
+                                                    data-slate-leaf="true" data-offset-key="169:0"
+                                                    data-first-offset="true"><span
+                                                    data-slate-string="true">}</span></span></span></div>
+                                            <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+                                                <div class="ps__thumb-x" tabindex="0"
+                                                     style="left: 0px; width: 0px;"></div>
+                                            </div>
+                                            <div class="ps__rail-y" style="top: 0px; right: 0px;">
+                                                <div class="ps__thumb-y" tabindex="0"
+                                                     style="top: 0px; height: 0px;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="se-b93d1f02 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="170"><span data-slate-object="text" data-key="171"><span
+                                            data-slate-leaf="true" data-offset-key="171:0"
+                                            data-first-offset="true"><span
+                                            data-slate-string="true">对应的输出结果是：</span></span></span></div>
+                                    <div class="se-58785788 se-20778c42" data-slate-type="pre" data-slate-object="block"
+                                         data-key="172">
+                                        <div class="se-602f0de0"></div>
+                                        <div class="se-b2a12654 ps">
+                                            <div class="se-0b5bd092 se-635bf64e" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="173"><span data-slate-object="text"
+                                                                                                data-key="174"><span
+                                                    data-slate-leaf="true" data-offset-key="174:0"
+                                                    data-first-offset="true"><span data-slate-string="true">sum is 1.6777216E7</span></span></span>
+                                            </div>
+                                            <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+                                                <div class="ps__thumb-x" tabindex="0"
+                                                     style="left: 0px; width: 0px;"></div>
+                                            </div>
+                                            <div class="ps__rail-y" style="top: 0px; right: 0px;">
+                                                <div class="ps__thumb-y" tabindex="0"
+                                                     style="top: 0px; height: 0px;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="se-a9d9a2bd " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="175"><span data-slate-object="text" data-key="176"><span
+                                            data-slate-leaf="true" data-offset-key="176:0"
+                                            data-first-offset="true"><span data-slate-string="true">面对这个问题，聪明的计算机科学家们也想出了具体的解决办法。他们发明了一种叫作</span></span></span><a
+                                            data-slate-type="link" data-slate-object="inline" data-key="177"
+                                            class="se-49b9dfc7 se-c2388b5b"><span data-slate-object="text"
+                                                                                  data-key="178"><span
+                                            data-slate-leaf="true" data-offset-key="178:0"
+                                            data-first-offset="true"><span
+                                            data-slate-string="true">Kahan Summation</span></span></span></a><span
+                                            data-slate-object="text" data-key="179"><span data-slate-leaf="true"
+                                                                                          data-offset-key="179:0"
+                                                                                          data-first-offset="true"><span
+                                            data-slate-string="true">的算法来解决这个问题。算法的对应代码我也放在文稿中了。从中你可以看到，同样是 2000 万个 1.0f 相加，用这种算法我们得到了准确的 2000 万的结果。</span></span></span>
+                                    </div>
+                                    <div class="se-e6525394 se-1da14027" data-slate-type="pre" data-slate-object="block"
+                                         data-key="180">
+                                        <div class="se-bfd16ea2"></div>
+                                        <div class="se-e5374568 ps">
+                                            <div class="se-0b5bd092 se-635bf64e" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="181"><span data-slate-object="text"
+                                                                                                data-key="182"><span
+                                                    data-slate-leaf="true" data-offset-key="182:0"
+                                                    data-first-offset="true"><span data-slate-string="true">public class KahanSummation {</span></span></span>
+                                            </div>
+                                            <div class="se-0b5bd092 se-635bf64e" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="183"><span data-slate-object="text"
+                                                                                                data-key="184"><span
+                                                    data-slate-leaf="true" data-offset-key="184:0"
+                                                    data-first-offset="true"><span data-slate-string="true">  public static void main(String[] args) {</span></span></span>
+                                            </div>
+                                            <div class="se-0b5bd092 se-635bf64e" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="185"><span data-slate-object="text"
+                                                                                                data-key="186"><span
+                                                    data-slate-leaf="true" data-offset-key="186:0"
+                                                    data-first-offset="true"><span data-slate-string="true">    float sum = 0.0f;</span></span></span>
+                                            </div>
+                                            <div class="se-0b5bd092 se-635bf64e" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="187"><span data-slate-object="text"
+                                                                                                data-key="188"><span
+                                                    data-slate-leaf="true" data-offset-key="188:0"
+                                                    data-first-offset="true"><span data-slate-string="true">    float c = 0.0f;</span></span></span>
+                                            </div>
+                                            <div class="se-0b5bd092 se-635bf64e" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="189"><span data-slate-object="text"
+                                                                                                data-key="190"><span
+                                                    data-slate-leaf="true" data-offset-key="190:0"
+                                                    data-first-offset="true"><span data-slate-string="true">    for (int i = 0; i &lt; 20000000; i++) {</span></span></span>
+                                            </div>
+                                            <div class="se-0b5bd092 se-635bf64e" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="191"><span data-slate-object="text"
+                                                                                                data-key="192"><span
+                                                    data-slate-leaf="true" data-offset-key="192:0"
+                                                    data-first-offset="true"><span data-slate-string="true">      float x = 1.0f;</span></span></span>
+                                            </div>
+                                            <div class="se-0b5bd092 se-635bf64e" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="193"><span data-slate-object="text"
+                                                                                                data-key="194"><span
+                                                    data-slate-leaf="true" data-offset-key="194:0"
+                                                    data-first-offset="true"><span data-slate-string="true">      float y = x - c;</span></span></span>
+                                            </div>
+                                            <div class="se-0b5bd092 se-635bf64e" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="195"><span data-slate-object="text"
+                                                                                                data-key="196"><span
+                                                    data-slate-leaf="true" data-offset-key="196:0"
+                                                    data-first-offset="true"><span data-slate-string="true">      float t = sum + y;</span></span></span>
+                                            </div>
+                                            <div class="se-0b5bd092 se-635bf64e" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="197"><span data-slate-object="text"
+                                                                                                data-key="198"><span
+                                                    data-slate-leaf="true" data-offset-key="198:0"
+                                                    data-first-offset="true"><span data-slate-string="true">      c = (t-sum)-y;</span></span></span>
+                                            </div>
+                                            <div class="se-0b5bd092 se-635bf64e" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="199"><span data-slate-object="text"
+                                                                                                data-key="200"><span
+                                                    data-slate-leaf="true" data-offset-key="200:0"
+                                                    data-first-offset="true"><span data-slate-string="true">      sum = t;      </span></span></span>
+                                            </div>
+                                            <div class="se-0b5bd092 se-635bf64e" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="201"><span data-slate-object="text"
+                                                                                                data-key="202"><span
+                                                    data-slate-leaf="true" data-offset-key="202:0"
+                                                    data-first-offset="true"><span data-slate-string="true">    }</span></span></span>
+                                            </div>
+                                            <div class="se-0b5bd092 se-635bf64e" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="203"><span data-slate-object="text"
+                                                                                                data-key="204"><span
+                                                    data-slate-leaf="true" data-offset-key="204:0"
+                                                    data-first-offset="true"><span data-slate-string="true">    System.out.println("sum is " + sum);   </span></span></span>
+                                            </div>
+                                            <div class="se-0b5bd092 se-635bf64e" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="205"><span data-slate-object="text"
+                                                                                                data-key="206"><span
+                                                    data-slate-leaf="true" data-offset-key="206:0"
+                                                    data-first-offset="true"><span data-slate-string="true">  }  </span></span></span>
+                                            </div>
+                                            <div class="se-0b5bd092 se-635bf64e" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="207"><span data-slate-object="text"
+                                                                                                data-key="208"><span
+                                                    data-slate-leaf="true" data-offset-key="208:0"
+                                                    data-first-offset="true"><span
+                                                    data-slate-string="true">}</span></span></span></div>
+                                            <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+                                                <div class="ps__thumb-x" tabindex="0"
+                                                     style="left: 0px; width: 0px;"></div>
+                                            </div>
+                                            <div class="ps__rail-y" style="top: 0px; right: 0px;">
+                                                <div class="ps__thumb-y" tabindex="0"
+                                                     style="top: 0px; height: 0px;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="se-58669915 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="209"><span data-slate-object="text" data-key="210"><span
+                                            data-slate-leaf="true" data-offset-key="210:0"
+                                            data-first-offset="true"><span
+                                            data-slate-string="true">对应的输出结果就是：</span></span></span></div>
+                                    <div class="se-f00f7819 se-cdb266d2" data-slate-type="pre" data-slate-object="block"
+                                         data-key="211">
+                                        <div class="se-fb85b8b7"></div>
+                                        <div class="se-36b14722 ps">
+                                            <div class="se-0b5bd092 se-635bf64e" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="212"><span data-slate-object="text"
+                                                                                                data-key="213"><span
+                                                    data-slate-leaf="true" data-offset-key="213:0"
+                                                    data-first-offset="true"><span
+                                                    data-slate-string="true">sum is 2.0E7</span></span></span></div>
+                                            <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+                                                <div class="ps__thumb-x" tabindex="0"
+                                                     style="left: 0px; width: 0px;"></div>
+                                            </div>
+                                            <div class="ps__rail-y" style="top: 0px; right: 0px;">
+                                                <div class="ps__thumb-y" tabindex="0"
+                                                     style="top: 0px; height: 0px;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="se-315a266a " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="214"><span data-slate-object="text" data-key="215"><span
+                                            data-slate-leaf="true" data-offset-key="215:0"
+                                            data-first-offset="true"><span data-slate-string="true">其实这个算法的原理其实并不复杂，就是在每次的计算过程中，都用一次减法，把当前加法计算中损失的精度记录下来，然后在后面的循环中，把这个精度损失放在要加的小数上，再做一次运算。</span></span></span>
+                                    </div>
+                                    <div class="se-54894817 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="216"><span data-slate-object="text" data-key="217"><span
+                                            data-slate-leaf="true" data-offset-key="217:0"
+                                            data-first-offset="true"><span data-slate-string="true">如果你对这个背后的数学原理特别感兴趣，可以去看一看</span></span></span><a
+                                            data-slate-type="link" data-slate-object="inline" data-key="218"
+                                            class="se-49b9dfc7 se-c2388b5b"><span data-slate-object="text"
+                                                                                  data-key="219"><span
+                                            data-slate-leaf="true" data-offset-key="219:0"
+                                            data-first-offset="true"><span data-slate-string="true">Wikipedia 链接</span></span></span></a><span
+                                            data-slate-object="text" data-key="220"><span data-slate-leaf="true"
+                                                                                          data-offset-key="220:0"
+                                                                                          data-first-offset="true"><span
+                                            data-slate-string="true">里面对应的数学证明，也可以生成一些数据试一试这个算法。这个方法在实际的数值计算中也是常用的，也是大量数据累加中，解决浮点数精度带来的“大数吃小数”问题的必备方案。</span></span></span>
+                                    </div>
+                                    <h2 class="se-ba3ac808" data-slate-type="heading" data-slate-object="block"
+                                        data-key="221"><span data-slate-object="text" data-key="222"><span
+                                            data-slate-leaf="true" data-offset-key="222:0"
+                                            data-first-offset="true"><span
+                                            data-slate-string="true">总结延伸</span></span></span></h2>
+                                    <div class="se-62ff4696 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="223"><span data-slate-object="text" data-key="224"><span
+                                            data-slate-leaf="true" data-offset-key="224:0"
+                                            data-first-offset="true"><span data-slate-string="true">到这里，我们已经讲完了浮点数的表示、加法计算以及可能会遇到的精度损失问题。可以看到，虽然浮点数能够表示的数据范围变大了很多，但是在实际应用的时候，由于存在精度损失，会导致加法的结果和我们的预期不同，乃至于完全没有加上的情况。</span></span></span>
+                                    </div>
+                                    <div class="se-84e779b0 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="225"><span data-slate-object="text" data-key="226"><span
+                                            data-slate-leaf="true" data-offset-key="226:0"
+                                            data-first-offset="true"><span data-slate-string="true">所以，一般情况下，在实践应用中，对于需要精确数值的，比如银行存款、电商交易，我们都会使用定点数或者整数类型。</span></span></span>
+                                    </div>
+                                    <div class="se-9798a53d " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="227"><span data-slate-object="text" data-key="228"><span
+                                            data-slate-leaf="true" data-offset-key="228:0"
+                                            data-first-offset="true"><span data-slate-string="true">比方说，你一定在 MySQL 里用过 decimal(12,2)，来表示订单金额。如果我们的银行存款用 32 位浮点数表示，就会出现，马云的账户里有 2 千万，我的账户里只剩 1 块钱。结果银行一汇总总金额，那 1 块钱在账上就“不翼而飞”了。</span></span></span>
+                                    </div>
+                                    <div class="se-bb48bcc5 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="229"><span data-slate-object="text" data-key="230"><span
+                                            data-slate-leaf="true" data-offset-key="230:0"
+                                            data-first-offset="true"><span data-slate-string="true">而浮点数呢，则更适合我们不需要有一个非常精确的计算结果的情况。因为在真实的物理世界里，很多数值本来就不是精确的，我们只需要有限范围内的精度就好了。比如，从我家到办公室的距离，就不存在一个 100% 精确的值。我们可以精确到公里、米，甚至厘米，但是既没有必要、也没有可能去精确到微米乃至纳米。</span></span></span>
+                                    </div>
+                                    <div class="se-69f82951 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="231"><span data-slate-object="text" data-key="232"><span
+                                            data-slate-leaf="true" data-offset-key="232:0"
+                                            data-first-offset="true"><span data-slate-string="true">对于浮点数加法中可能存在的精度损失，特别是大量加法运算中累积产生的巨大精度损失，我们可以用 Kahan Summation 这样的软件层面的算法来解决。</span></span></span>
+                                    </div>
+                                    <div class="se-b8619c49 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="233"><span data-slate-object="text" data-key="234"><span
+                                            data-slate-leaf="true" data-offset-key="234:0"
+                                            data-first-offset="true"><span data-slate-string="true">好了，到了这里，我已经把浮点数讲透了。希望你能从数据的表示、加法的实现，乃至实践应用、数值算法层面能够体会到，搞清楚一个计算机问题的基本原理，其实能够帮助你理解它的实践应用，乃至找到在特定问题下的可行解决方案。接下来，我们要深入到 CPU 的构造，去理解计算机组成原理。</span></span></span>
+                                    </div>
+                                    <h2 class="se-ab4daa20" data-slate-type="heading" data-slate-object="block"
+                                        data-key="235"><span data-slate-object="text" data-key="236"><span
+                                            data-slate-leaf="true" data-offset-key="236:0"
+                                            data-first-offset="true"><span
+                                            data-slate-string="true">推荐阅读</span></span></span></h2>
+                                    <div class="se-5f864ec4 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="237"><span data-slate-object="text" data-key="238"><span
+                                            data-slate-leaf="true" data-offset-key="238:0"
+                                            data-first-offset="true"><span data-slate-string="true">浮点数的加法我们讲完了。想要更深入地了解乘法乃至除法，可以参看《计算机组成与设计 硬件 / 软件接口》的 3.5.2 和 3.5.3 小节。</span></span></span>
+                                    </div>
+                                    <h2 class="se-77619870" data-slate-type="heading" data-slate-object="block"
+                                        data-key="239"><span data-slate-object="text" data-key="240"><span
+                                            data-slate-leaf="true" data-offset-key="240:0"
+                                            data-first-offset="true"><span
+                                            data-slate-string="true">课后思考</span></span></span></h2>
+                                    <div class="se-ee3a0547 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="241"><span data-slate-object="text" data-key="242"><span
+                                            data-slate-leaf="true" data-offset-key="242:0"
+                                            data-first-offset="true"><span data-slate-string="true">这两节我讲的都是 32 位浮点数，那么对于 64 位浮点数的加法，两个数相差多少的情况后，较小的哪个数在加法过程中会完全丢失呢？</span></span></span>
+                                    </div>
+                                    <div class="se-e7d4031b " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="243"><span data-slate-object="text" data-key="244"><span
+                                            data-slate-leaf="true" data-offset-key="244:0"
+                                            data-first-offset="true"><span data-slate-string="true">欢迎你在留言区写下你的思考和疑问，和大家一起探讨。你也可以把今天的文章分享给你朋友，和他一起学习和进步。</span></span></span>
+                                    </div>
+                                </div>
+                            </div> <!----> <!----></div>
+                        <div class="_2w-W27j5_0">
+                            <div class="O6lROQG3_0"></div>
+                            <div class="_1N2pD_iU_0"></div>
+                            <div class="D3bjEGOR_0">
+                                <div class="_3T3EUmr2_0 ps"><textarea placeholder="将学到的知识总结成笔记，方便日后快速查找及复习"
+                                                                      style="height: 240px;"></textarea>
+                                    <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+                                        <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+                                    </div>
+                                    <div class="ps__rail-y" style="top: 0px; right: 0px;">
+                                        <div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div>
+                                    </div>
+                                </div>
+                                <div class="_2XxzQqjL_0" style="display: none;">
+                                    <div class="_1KDQg3Bq_0">确认放弃笔记？</div>
+                                    <div class="mJWK5em0_0">放弃后所记笔记将不保留。</div>
+                                </div>
+                                <div class="_3tbfXQau_0" style="display: none;"></div>
+                            </div>
+                            <div class="_1Ax_ZpPk_0">
+                                <div class="_2OgrMv3n_0">取消</div>
+                                <div class="FKyaWb-t_0">完成</div> <!----> <!----> <!----></div>
+                            <div class="_3MpaRWpt_0"><span>0/1000字</span></div>
+                        </div>
+                        <div class="zbKHG1ec_0">
+                            <div class="tXxk8mk7_0">划线</div>
+                            <div class="_2YBWosuL_0"></div>
+                            <div class="_25lruFgJ_0"></div>
+                            <div class="_3wLabARi_0"></div>
+                            <div class="tXxk8mk7_0">笔记</div>
+                            <div class="_2YBWosuL_0"></div>
+                            <div class="tXxk8mk7_0">复制</div>
+                        </div>
+                    </div>   <!----></div>
+            </div>
+            <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+                <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+            </div>
+            <div class="ps__rail-y" style="top: 0px; right: 0px;">
+                <div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div>
+            </div>
+        </div>
+        <div class="_35V_pofE_0">
+            <div class="_19KVU7IX_0 iconfont OJ1-O2lA_0 _3zAMGadh_0"><span>37</span></div>
+            <div class="_3QWdWikl_0 iconfont OJ1-O2lA_0 _3zAMGadh_0"><span>40</span></div>
+            <div class="P00Ux77Z_0 iconfont OJ1-O2lA_0 _3zAMGadh_0"></div>
+            <div class="_1GGnOK0Z_0 iconfont OJ1-O2lA_0 _3zAMGadh_0"></div>
+            <div class="_23jDaBCo_0 iconfont OJ1-O2lA_0 _3zAMGadh_0"></div> <!---->
+            <div class="_1lgUyPfS_0 iconfont OJ1-O2lA_0"></div>
+            <div class="FSrxdnjI_0 iconfont OJ1-O2lA_0 _3zAMGadh_0"><a href="//time.geekbang.org/download"
+                                                                       target="_blank"><span
+                    class="_2NDI-Prg_0"></span><span class="_15yXCNVi_0">下载<br>客户端</span></a></div>
+            <div class="_2nVCVrRU_0 iconfont OJ1-O2lA_0 _3zAMGadh_0"><span class="_2NDI-Prg_0"></span><span
+                    class="_15yXCNVi_0">返回<br>顶部</span></div>
+        </div>
+        <div class="k7LpsVQS_0">
+            <div class="_3Z-tRdhG_0 iconfont OJ1-O2lA_0"></div>
+        </div> <!----></div>
+</div>
+<div class="_2sRsF5RP_0"></div>
+
+
+
+</body>
+</html>
+<script>
+
+
+</script>
