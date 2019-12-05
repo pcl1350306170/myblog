@@ -181,7 +181,7 @@ function showDetail(id){
 }
 function showImg(obj){
 	let src = $(obj).find('img').attr('src')
-	let n = '<img src="'+src+'" style="max-width: 90%">'
+	let n = '<img src="'+src+'" style="max-width: 1500px">'
 	//页面层-图片
 
 	layer.open({

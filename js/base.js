@@ -8,7 +8,7 @@ $(function () {
     banner_img_url_click();
     click_show_hide_article_btn_box_item();
     mousehover_changeimgsrc();
-    setNiceScroll()
+    // setNiceScroll()
 });
 function setNiceScroll(){
   $('body').niceScroll({

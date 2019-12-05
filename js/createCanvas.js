@@ -151,10 +151,10 @@ function createCanvasFun(type){
 	});
 
 	setInterval(()=>{
-		mousePosition.x = canvas.width* Math.random() / 2;
+		mousePosition.x = canvas.width * 0.2 * Math.random() / 2;
 		mousePosition.y = canvas.height* Math.random() / 2;
 		console.log(mousePosition, Math.random())
-	},10000)
+	},1000 * 10)
 
 	createDots();
 	requestAnimationFrame(animateDots);

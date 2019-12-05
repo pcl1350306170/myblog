@@ -5,8 +5,12 @@
     <title>详情页</title>
     <link rel="icon" href="img/logo.png" type="image/png">
     <link href="lib/layui/css/layui.css" rel="stylesheet" type="text/css">
+    <link href="lib/font/iconfont.css" rel="stylesheet" type="text/css">
+    <link href="lib/gotop/css/styles.css" rel="stylesheet" type="text/css">
     <link href="css/base.css" rel="stylesheet" type="text/css">
+
     <script src="js/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="lib/gotop/js/jquery.gototop.js" type="text/javascript"></script>
     <script src="js/base.js" type="text/javascript"></script>
     <script src="js/createCanvas.js" type="text/javascript"></script>
 </head>
@@ -38,6 +42,11 @@
 
     .detail-nr img{
         max-width: 100%;
+    }
+    .detail-nr pre{
+        background: #e2e2e2;
+        padding: 10px;
+        border-radius: 7px;
     }
 
     html, body {
@@ -80,7 +89,13 @@
                     $(".detail-nr").html(r[0]['nr'])
 
                   setTimeout(()=>{
-										createCanvasFun()
+                      createCanvasFun()
+                      $(".gototop").gototop({
+                          position : 0,
+                          duration : 1250,
+                          visibleAt : 300,
+                          classname : "isvisible"
+                      });
                   },1000)
 				}
 
@@ -100,6 +115,7 @@
     <div class="detail-time"></div>
     <div class="detail-nr"></div>
 </div>
+<button class="gototop"><span>返回顶部</span></button>
 <script>
 
 </script>

@@ -69,6 +69,9 @@
 		case 'add':
 			//处理传过来的值
 			$field_title	= $_POST["field_title"];				// 标题
+			$field_imgname	= $_POST["field_imgname"];				// 图片名
+			$field_type	= $_POST["field_type"];				// 类型
+			$field_images	= $_POST["field_images"];				// 图片路径
 			$field_content	= $_POST['field_content'];				// 内容
 			$field_gjc = $_POST['field_gjc'];// 接收单位名称
 
@@ -78,9 +81,12 @@
 
 
 			$SQL = "insert into $table(".
-				"id, title, nr,gjc,tjsj) values (".
+				"id, title,images,imgname,type, nr,gjc,tjsj) values (".
 				"'".$id."', ".
 				"'".$field_title."', ".
+				"'".addslashes($field_images)."', ".
+				"'".addslashes($field_imgname)."', ".
+				"'".$field_type."', ".
 				"'".addslashes($field_content)."', ".
 				"'".$field_gjc."', ".
 				"'".$TJSJ."')";
@@ -91,11 +97,17 @@
 			//处理传过来的值
 			$field_id = $_POST["field_id"];							// ID
 			$field_title	= $_POST["field_title"];				// 标题
+			$field_imgname	= $_POST["field_imgname"];				// 图片名
+			$field_type	= $_POST["field_type"];				// 类型
+			$field_images	= $_POST["field_images"];				// 图片路径
 			$field_content	= $_POST['field_content'];				// 内容
 			$field_gjc = $_POST['field_gjc'];// 接收单位名称
 
 			$SQL = "update $table set".
 				" title='$field_title',".
+				" images='$field_images',".
+				" imgname='$field_imgname',".
+				" type='$field_type',".
 				"nr='".addslashes($field_content)."',".
 				"gjc='$field_gjc' ".
 				"where id='$field_id'";
