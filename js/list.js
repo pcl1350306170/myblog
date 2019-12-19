@@ -117,6 +117,7 @@ var getListData = {
 				}
 
 				$(_this.listDemo).html(h);
+				$(".gototop").click()
 			}
 		});
 	},
@@ -161,6 +162,7 @@ var getListData = {
 				}
 
 				$(_this.listDemo).html(h);
+				$(".gototop").click()
 			}
 		});
 	},

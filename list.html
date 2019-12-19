@@ -55,6 +55,13 @@
                     classname : "isvisible"
                 });
 			}, 1000)
+        $(document).keydown(function(e){
+            e = e || window.event;
+            var keyCode = e.keyCode || e.which || e.charCode;
+            if(keyCode==13){
+                getListData.searchList()
+            };
+        })
 	});
 </script>
 <canvas id="canvasBG" style="position: absolute;width: 100%;z-index:-1;"></canvas>
