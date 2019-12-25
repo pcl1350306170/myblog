@@ -6,6 +6,19 @@ var ajaxUrl = requestHttp + 'requestData_zsd.php',
 	menuId = '';
 var gjcArray = [];
 $(function () {
+
+	console.log('shift + ctrl + ;  ===== 备份数据库')
+	console.log('shift + ctrl + F10  读取文件生成一个文件')
+
+
+
+
+
+
+
+
+
+
 	$(document).keydown(function(e){
 		e = e || window.event;
 		var keyCode = e.keyCode || e.which || e.charCode;
@@ -17,10 +30,14 @@ $(function () {
 		var shiftKey = e.shiftKey || e.metaKey;//这里如果是检测ctrl键和其他键的话，就写e.ctrlKey
 		var ctrlKey = e.ctrlKey || e.metaKey;//这里如果是检测ctrl键和其他键的话，就写e.ctrlKey
 
+		// shift + ctrl + ;  备份数据库
 		if(shiftKey && ctrlKey && e.keyCode == 186) {
 			loadSavemysql()
 		}
-
+		// shift + ctrl + F10  读取文件生成一个文件
+		if(shiftKey && ctrlKey && e.keyCode == 121) {
+			loadFiles()
+		}
 	});
 })
 function createGJC(){
@@ -161,4 +178,46 @@ function saveDatatable(){
 			$("#field_table").val('');
 		}
 	});
+}
+
+// 传一个文件路径，获取这个目录下的左右文件
+function loadFiles() {
+	let h = '<input class="form-control" type="text" id="field_filepath" style="width:50%;margin: 5vh auto;">'
+
+	let h2 = '<div style="width: 100%;height: 15vh;text-align: center;line-height: 15vh;">'+h+'</div>'
+	layer.open({
+		type:1,
+		title : '根据文件路径获取文件',
+		area : ['40%','40%'],
+		shade:0.6,
+		closeBtn:0,    //不显示关闭
+		btnAlign : 'a',//按钮居中
+		content:h2 ,
+		btn:["获取","关闭"],
+		yes : function (index, layero){
+			let field_filepath = $("#field_filepath").val()
+			if(field_filepath === ''){
+				layer.alert('填写文件路径！', {icon: 2});
+				return;
+			}
+			let psotom = {
+				act: 'loadFiles',
+				field_filepath: field_filepath	// 文件路径
+			};
+			$.ajax({
+				url: ajaxFileDealPhp,
+				type: "POST",
+				dataType: "TEXT",
+				data: psotom,
+				success: function (data) {
+					console.log(data)
+					layer.alert(data, {icon: 1});
+				}
+			});
+			// layer.close(index);
+		},btn2 : function (index, layero){
+			// 取消
+			layer.close(index);
+		}
+	})
 }
