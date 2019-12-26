@@ -210,6 +210,14 @@ function randomKeys($length) {
 	}
 	return $key;
 }
+function randomKeysNUM($length) {
+    $pattern = '1234567890';
+    for($i = 0; $i < $length;$i++)
+    {
+        $key .= $pattern{mt_rand(0, 10)};
+    }
+    return $key;
+}
 
 // 获取文件相关
 function printFile($filepath)

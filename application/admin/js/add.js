@@ -17,8 +17,6 @@ $(function () {
 
 
 
-
-
 	$(document).keydown(function(e){
 		e = e || window.event;
 		var keyCode = e.keyCode || e.which || e.charCode;
@@ -182,13 +180,16 @@ function saveDatatable(){
 
 // 传一个文件路径，获取这个目录下的左右文件
 function loadFiles() {
-	let h = '<input class="form-control" type="text" id="field_filepath" style="width:50%;margin: 5vh auto;">'
+	let h = '<div><span style="display: inline-block;width: 160px;">文件路径：</span><input class="form-control" type="text" id="field_filepath" style="width:60%;margin: 2vh auto;display: inline-block;"></div>' +
+		'<div><span style="display: inline-block;width: 160px;">文件保存路径：</span><input class="form-control" type="text" id="field_filesavepath" style="width:60%;margin: 5vh auto;display: inline-block;"></div>' +
+		'<div><span style="display: inline-block;width: 160px;">文件名：</span><input class="form-control" type="text" id="field_filesavename" style="width:60%;margin: 5vh auto;display: inline-block;"></div>' +
+		'<div><span style="display: inline-block;width: 160px;">筛选标题关键字：</span><input class="form-control" type="text" id="field_titleGJZ" style="width:60%;margin: 5vh auto;display: inline-block;"></div>'
 
 	let h2 = '<div style="width: 100%;height: 15vh;text-align: center;line-height: 15vh;">'+h+'</div>'
 	layer.open({
 		type:1,
 		title : '根据文件路径获取文件',
-		area : ['40%','40%'],
+		area : ['80%','80%'],
 		shade:0.6,
 		closeBtn:0,    //不显示关闭
 		btnAlign : 'a',//按钮居中
@@ -196,13 +197,19 @@ function loadFiles() {
 		btn:["获取","关闭"],
 		yes : function (index, layero){
 			let field_filepath = $("#field_filepath").val()
+			let field_filesavename = $("#field_filesavename").val()
+			let field_filesavepath = $("#field_filesavepath").val()
+			let field_titleGJZ = $("#field_titleGJZ").val()
 			if(field_filepath === ''){
 				layer.alert('填写文件路径！', {icon: 2});
 				return;
 			}
 			let psotom = {
 				act: 'loadFiles',
-				field_filepath: field_filepath	// 文件路径
+				field_filepath: field_filepath,	// 文件路径
+				field_filesavepath:field_filesavepath,
+				field_filesavename:field_filesavename,
+				field_titleGJZ:field_titleGJZ
 			};
 			$.ajax({
 				url: ajaxFileDealPhp,
