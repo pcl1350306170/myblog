@@ -117,7 +117,7 @@
 			break;
 		case "showdetail":
 		  $zsdid = $_POST["zsdid"];
-		  $sql = "select id,title,gjc,tjsj,nr from $table where  id = '".$zsdid."'";
+		  $sql = "select id,title,gjc,tjsj,nr,type from $table where  id = '".$zsdid."'";
 		  $lei=$db->JsonQuery($sql,1,$dba);
 		  echo $lei;
 		break;

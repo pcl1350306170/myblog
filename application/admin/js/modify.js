@@ -1,5 +1,5 @@
 /**
- *  添加的js页面
+ *  修改的js页面
  */
 var ajaxUrl = requestHttp + 'requestData_zsd.php',
 	systemName = '',
@@ -34,11 +34,37 @@ $(function () {
 		}
 	});
 })
+function getmodifyDetail(){
+	$.ajax({
+		url: ajaxUrl, // 这是当前服务器的地址
+		type: 'POST',
+		data: {act: 'showdetail', zsdid: itemId},
+		dataType: 'text',
+		success: function (data) {
+			let r = eval('(' + data + ')')
+
+			$("#field_title").val(r[0]['title'])
+			$("#field_gjc").val(r[0]['gjc'])
+			$("#txtContent").val(r[0]['nr'])
+			$("#field_type").val(r[0]['type'])
+			createGJC()
+		}
+
+	});
+}
 function createGJC(){
 	let v= $("#field_gjc").val();
 	if(v === '' || !v)return
-	gjcArray.push(v)
-	let h = '<span class="layui-badge layui-bg-blue" onclick="removeGjc(this)">'+v+'</span>'
+	let v2 = v.split(",")
+	// gjcArray.push(v)
+	gjcArray = [...gjcArray,...v2]
+
+	let h = ''
+	for(let i = 0 ; i < v2.length ; i++){
+		if(v2[i] === '')continue
+		h+='<span class="layui-badge layui-bg-blue" onclick="removeGjc(this)">'+v2[i]+'</span>'
+	}
+
 	$(".div-gjc").append(h)
 	$("#field_gjc").val('');
 }
@@ -85,7 +111,8 @@ function saveEvent(obj) {
 
 
 	var psotom = {
-		act: 'add',
+		act: 'modify',
+		field_id: itemId,
 		field_title: field_title,	// 标题
 		field_content: field_content, // 内容
 		field_gjc: field_gjc,
@@ -100,8 +127,8 @@ function saveEvent(obj) {
 		dataType: "TEXT",
 		data: psotom,
 		success: function (data) {
-			if (data == '') {
-				layer.alert('添加成功', {icon: 1}, function (index) {
+			if (data == '1') {
+				layer.alert('修改成功', {icon: 1}, function (index) {
 					location = location;
 					//operation("list");
 				});

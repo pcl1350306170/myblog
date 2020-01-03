@@ -1,0 +1,24 @@
+.fileEdit{
+  width: 80%;
+  margin: 0 auto;
+  height: 100%;
+  padding: 20px 40px;
+  h2{
+    margin: 20px 10px;
+  }
+  .layui-input-block{
+    margin: 0;
+    .layui-input{
+      width: 800px;
+    }
+  }
+  .layui-form-item{
+    .layui-form-label{
+      width: 120px;
+    }
+  }
+  .layui-form-item:last-child{
+    text-align: center;
+    margin-top: 30px;
+  }
+}

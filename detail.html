@@ -102,6 +102,16 @@
 				}
 
 			});
+
+        $(document).keydown(function(e){
+            var shiftKey = e.shiftKey || e.metaKey;//这里如果是检测ctrl键和其他键的话，就写e.ctrlKey
+            var ctrlKey = e.ctrlKey || e.metaKey;//这里如果是检测ctrl键和其他键的话，就写e.ctrlKey
+
+            if(shiftKey && ctrlKey && e.keyCode == 186) {
+                window.open('./application/admin/modify.php?id=' + itemId)
+            }
+
+        });
     })
 </script>
 <canvas></canvas>

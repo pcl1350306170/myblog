@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改文件名</title>
+</head>
+<link href="../../lib/layui/css/layui.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../Resources/css/common.css"/>
+
+<script src="../../js/jquery-1.8.3.min.js" type="text/javascript"></script>
+<script src="../../lib/layui/layui.all.js" type="text/javascript"></script>
+<script src="../../lib/layui/lay/modules/layer.js" type="text/javascript"></script>
+<script src="../../js/_variable.js" type="text/javascript"></script>
+<script src="../Resources/js/common.js" type="text/javascript"></script>
+
+<body>
+<div class="fileEdit">
+    <h2>页面说明：用来重命名文件，根据输入的文件名关键字替换</h2>
+    <form class="layui-form" action="">
+        <div class="layui-form-item">
+            <label class="layui-form-label">文件目录</label>
+            <div class="layui-input-block">
+                <input type="text" name="field_path" lay-verify="required" placeholder="请输入文件目录" autocomplete="off" class="layui-input" id="field_path">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">文件名替换关键字</label>
+            <div class="layui-input-block">
+                <input type="text" name="field_titlegjz" lay-verify="required" placeholder="请输入文件名替换关键字" autocomplete="off" class="layui-input" id="field_titlegjz">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">文件名替换内容</label>
+            <div class="layui-input-block">
+                <input type="text" name="field_titletogjz" placeholder="请输入文件名替换内容" autocomplete="off" class="layui-input" id="field_titletogjz">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            </div>
+        </div>
+    </form>
+</div>
+<script>
+    //Demo
+    layui.use('form', function(){
+        var form = layui.form;
+
+        //监听提交
+        form.on('submit(formDemo)', function(data){
+            // layer.msg(JSON.stringify(data.field));
+            CommonFun.fileEdit(data.field)
+            return false;
+        });
+    });
+</script>
+</body>
+</html>
