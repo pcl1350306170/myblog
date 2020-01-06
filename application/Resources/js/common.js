@@ -36,6 +36,7 @@ var CommonFun = {
             dataType: "TEXT",
             data: data,
             success: function (data) {
+                console.log('写入文件状态：'+data)
                 // layer.alert(data, {icon: 1});
             }
         });
