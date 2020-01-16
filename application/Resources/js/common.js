@@ -107,5 +107,31 @@ var CommonFun = {
                 // layer.alert(data, {icon: 1});
             }
         });
+    },
+    // uniapp测试数据：获取新闻
+    UNNIAPP_getOnlineNr(data,callback){
+        $.ajax({
+            url: 'https://unidemo.dcloud.net.cn/api/news',
+            type: "GET",
+            dataType: "JSON",
+            data: data,
+            success: function (data) {
+                callback(data);
+            }
+        });
+    },
+    // uniapp测试数据：保存新闻
+    UNNIAPP_createNews (data){
+        data.act = 'UNNIAPP_createNews'
+        $.ajax({
+            url: ajaxFileDealPhp,
+            type: "POST",
+            dataType: "TEXT",
+            data: data,
+            success: function (data) {
+
+
+            }
+        });
     }
 }

@@ -90,6 +90,7 @@
 				"'".addslashes($field_content)."', ".
 				"'".$field_gjc."', ".
 				"'".$TJSJ."')";
+			//echo $SQL;exit();
 			$lei=$db->Query($SQL,2);
 			echo $lei[0];
 			break;

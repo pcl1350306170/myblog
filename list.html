@@ -43,6 +43,12 @@
 			getListData.search_type = '杂七杂八';
         }else if (Number(paras.type) === 1) {
             getListData.search_type = '博文';
+        }else if (Number(paras.type) === 4) {
+            getListData.search_type = '油猴脚本';
+        }else if (Number(paras.type) === 5) {
+            getListData.search_type = '笔记';
+        }else if (Number(paras.type) === 6) {
+            getListData.search_type = '太平广记';
         }
 		$('.header_logo a h2').html(getListData.search_type)
 

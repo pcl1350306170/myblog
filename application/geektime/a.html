@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .ibY_sXau_0{
+        width: 60%;
+        margin: 20px auto;
+        border: none !important;
+    }
+    ._35V_pofE_0,._2w-W27j5_0,.zbKHG1ec_0,._3qftfzyH_0{
+        display: none;
+    }
+
+</style>
+<body>
+
+
+<div class="_1ysv2txS_0 XTM1kTqe_0">
+    <div class="_1Q_izgym_0 _3LvuIf22_0">
+        <div class="ibY_sXau_0 ps" style="border: 1px solid red;">
+            <div class="_1Dgl7pMn_0"><h1 class="cZCVMzBP_0">JavaScript对象：我们真的需要模拟类吗？</h1>
+                <div class="_2VF1_VFy_0"><span>winter</span> <span>2019-01-31</span></div>
+                <div class="_2SKlnZlt_0"> <!---->
+                    <div class="_2i1ytqT9_0">
+                        <div class="_3TuZWiOJ_0">
+                            <div class="_2c4hPkl9">
+                                <div data-slate-editor="true" data-key="0" autocorrect="off" spellcheck="false"
+                                     data-gramm="false"
+                                     style="outline: none; white-space: pre-wrap; overflow-wrap: break-word;">
+                                    <div class="se-c6cd1ae5 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="1"><span data-slate-object="text" data-key="2"><span
+                                            data-slate-leaf="true" data-offset-key="2:0" data-first-offset="true"><span
+                                            data-slate-string="true">早期的 JavaScript 程序员一般都有过使用 JavaScript“模拟面向对象”的经历。</span></span></span>
+                                    </div>
+                                    <div class="se-61fe9869 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="3"><span data-slate-object="text" data-key="4"><span
+                                            data-slate-leaf="true" data-offset-key="4:0" data-first-offset="true"><span
+                                            data-slate-string="true">在上一篇文章我们已经讲到，JavaScript 本身就是面向对象的，它并不需要模拟，只是它实现面向对象的方式和主流的流派不太一样，所以才让很多人产生了误会。</span></span></span>
+                                    </div>
+                                    <div class="se-e8f9f371 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="5"><span data-slate-object="text" data-key="6"><span
+                                            data-slate-leaf="true" data-offset-key="6:0" data-first-offset="true"><span
+                                            data-slate-string="true">那么，随着我们理解的思路继续深入，这些“模拟面向对象”，实际上做的事情就是“模拟基于类的面向对象”。</span></span></span>
+                                    </div>
+                                    <div class="se-39590e78 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="7"><span data-slate-object="text" data-key="8"><span
+                                            data-slate-leaf="true" data-offset-key="8:0" data-first-offset="true"><span
+                                            data-slate-string="true">尽管我认为，“类”并非面向对象的全部，但我们不应该责备社区出现这样的方案，事实上，因为一些公司的政治原因，JavaScript 推出之时，管理层就要求它去模仿 Java。</span></span></span>
+                                    </div>
+                                    <div class="se-b48fe4ab " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="9"><span data-slate-object="text" data-key="10"><span
+                                            data-slate-leaf="true" data-offset-key="10:0" data-first-offset="true"><span
+                                            data-slate-string="true">所以，JavaScript 创始人 Brendan Eich 在“原型运行时”的基础上引入了 new、this 等语言特性，使之“看起来语法更像 Java”，而 Java 正是基于类的面向对象的代表语言之一。</span></span></span>
+                                    </div>
+                                    <div class="se-6bd85200 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="11"><span data-slate-object="text" data-key="12"><span
+                                            data-slate-leaf="true" data-offset-key="12:0" data-first-offset="true"><span
+                                            data-slate-string="true">但是 JavaScript 这样的半吊子模拟，缺少了继承等关键特性，导致大家试图对它进行修补，进而产生了种种互不相容的解决方案。</span></span></span>
+                                    </div>
+                                    <div class="se-8dca1836 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="13"><span data-slate-object="text" data-key="14"><span
+                                            data-slate-leaf="true" data-offset-key="14:0" data-first-offset="true"><span
+                                            data-slate-string="true">庆幸的是，从 ES6 开始，JavaScript 提供了 class 关键字来定义类，尽管，这样的方案仍然是基于原型运行时系统的模拟，但是它修正了之前的一些常见的“坑”，统一了社区的方案，这对语言的发展有着非常大的好处。</span></span></span>
+                                    </div>
+                                    <div class="se-72fae584 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="15"><span data-slate-object="text" data-key="16"><span
+                                            data-slate-leaf="true" data-offset-key="16:0" data-first-offset="true"><span
+                                            data-slate-string="true">实际上，我认为“基于类”并非面向对象的唯一形态，如果我们把视线从“类”移开，Brendan 当年选择的原型系统，就是一个非常优秀的抽象对象的形式。</span></span></span>
+                                    </div>
+                                    <div class="se-c9cd91e8 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="17"><span data-slate-object="text" data-key="18"><span
+                                            data-slate-leaf="true" data-offset-key="18:0" data-first-offset="true"><span
+                                            data-slate-string="true">我们从头讲起。</span></span></span></div>
+                                    <h2 class="se-e7b7bd0c" data-slate-type="heading" data-slate-object="block"
+                                        data-key="19"><span data-slate-object="text" data-key="20"><span
+                                            data-slate-leaf="true" data-offset-key="20:0" data-first-offset="true"><span
+                                            data-slate-string="true">什么是原型？</span></span></span></h2>
+                                    <div class="se-aa418d95 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="21"><span data-slate-object="text" data-key="22"><span
+                                            data-slate-leaf="true" data-offset-key="22:0" data-first-offset="true"><span
+                                            data-slate-string="true">原型是顺应人类自然思维的产物。中文中有个成语叫做“照猫画虎”，这里的猫看起来就是虎的原型，所以，由此我们可以看出，用原型来描述对象的方法可以说是古已有之。</span></span></span>
+                                    </div>
+                                    <div class="se-639bc5c7 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="23"><span data-slate-object="text" data-key="24"><span
+                                            data-slate-leaf="true" data-offset-key="24:0" data-first-offset="true"><span
+                                            data-slate-string="true">我们在上一节讲解面向对象的时候提到了：在不同的编程语言中，设计者也利用各种不同的语言特性来抽象描述对象。</span></span></span>
+                                    </div>
+                                    <div class="se-e24126d6 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="25"><span data-slate-object="text" data-key="26"><span
+                                            data-slate-leaf="true" data-offset-key="26:0" data-first-offset="true"><span
+                                            data-slate-string="true">最为成功的流派是使用“类”的方式来描述对象，这诞生了诸如 C++、Java 等流行的编程语言。这个流派叫做基于类的编程语言。</span></span></span>
+                                    </div>
+                                    <div class="se-95c89f5d " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="27"><span data-slate-object="text" data-key="28"><span
+                                            data-slate-leaf="true" data-offset-key="28:0" data-first-offset="true"><span
+                                            data-slate-string="true">还有一种就是基于原型的编程语言，它们利用原型来描述对象。我们的 JavaScript 就是其中代表。</span></span></span>
+                                    </div>
+                                    <div class="se-e44ee2aa " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="29"><span data-slate-object="text" data-key="30"><span
+                                            data-slate-leaf="true" data-offset-key="30:0" data-first-offset="true"><span
+                                            data-slate-string="true">“基于类”的编程提倡使用一个关注分类和类之间关系开发模型。在这类语言中，总是先有类，再从类去实例化一个对象。类与类之间又可能会形成继承、组合等关系。类又往往与语言的类型系统整合，形成一定编译时的能力。</span></span></span>
+                                    </div>
+                                    <div class="se-0bddf014 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="31"><span data-slate-object="text" data-key="32"><span
+                                            data-slate-leaf="true" data-offset-key="32:0" data-first-offset="true"><span
+                                            data-slate-string="true">与此相对，“基于原型”的编程看起来更为提倡程序员去关注一系列对象实例的行为，而后才去关心如何将这些对象，划分到最近的使用方式相似的原型对象，而不是将它们分成类。</span></span></span>
+                                    </div>
+                                    <div class="se-dbc415c6 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="33"><span data-slate-object="text" data-key="34"><span
+                                            data-slate-leaf="true" data-offset-key="34:0" data-first-offset="true"><span
+                                            data-slate-string="true">基于原型的面向对象系统通过“复制”的方式来创建新对象。一些语言的实现中，还允许复制一个空对象。这实际上就是创建一个全新的对象。</span></span></span>
+                                    </div>
+                                    <div class="se-247198b6 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="35"><span data-slate-object="text" data-key="36"><span
+                                            data-slate-leaf="true" data-offset-key="36:0" data-first-offset="true"><span
+                                            data-slate-string="true">基于原型和基于类都能够满足基本的复用和抽象需求，但是适用的场景不太相同。</span></span></span>
+                                    </div>
+                                    <div class="se-ddbe973d " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="37"><span data-slate-object="text" data-key="38"><span
+                                            data-slate-leaf="true" data-offset-key="38:0" data-first-offset="true"><span
+                                            data-slate-string="true">这就像专业人士可能喜欢在看到老虎的时候，喜欢用猫科豹属豹亚种来描述它，但是对一些不那么正式的场合，“大猫”可能更为接近直观的感受一些（插播一个冷知识：比起老虎来，美洲狮在历史上相当长时间都被划分为猫科猫属，所以性格也跟猫更相似，比较亲人）。</span></span></span>
+                                    </div>
+                                    <div class="se-c7db0dbb " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="39"><span data-slate-object="text" data-key="40"><span
+                                            data-slate-leaf="true" data-offset-key="40:0" data-first-offset="true"><span
+                                            data-slate-string="true">我们的 JavaScript 并非第一个使用原型的语言，在它之前，self、kevo 等语言已经开始使用原型来描述对象了。</span></span></span>
+                                    </div>
+                                    <div class="se-f1ad6d60 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="41"><span data-slate-object="text" data-key="42"><span
+                                            data-slate-leaf="true" data-offset-key="42:0" data-first-offset="true"><span
+                                            data-slate-string="true">事实上，Brendan 更是曾透露过，他最初的构想是一个拥有基于原型的面向对象能力的 scheme 语言（但是函数式的部分是另外的故事，这篇文章里，我暂时不做详细讲述）。</span></span></span>
+                                    </div>
+                                    <div class="se-4183436c " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="43"><span data-slate-object="text" data-key="44"><span
+                                            data-slate-leaf="true" data-offset-key="44:0" data-first-offset="true"><span
+                                            data-slate-string="true">在 JavaScript 之前，原型系统就更多与高动态性语言配合，并且多数基于原型的语言提倡运行时的原型修改，我想，这应该是 Brendan 选择原型系统很重要的理由。</span></span></span>
+                                    </div>
+                                    <div class="se-44141a69 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="45"><span data-slate-object="text" data-key="46"><span
+                                            data-slate-leaf="true" data-offset-key="46:0" data-first-offset="true"><span
+                                            data-slate-string="true">原型系统的“复制操作”有两种实现思路：</span></span></span></div>
+                                    <div class="se-e7019980" data-slate-type="list" data-slate-object="block"
+                                         data-key="47">
+                                        <div class="se-cd35e512 se-266b43fb" data-slate-type="list-line"
+                                             data-slate-object="block" data-key="48"><span data-slate-object="text"
+                                                                                           data-key="49"><span
+                                                data-slate-leaf="true" data-offset-key="49:0"
+                                                data-first-offset="true"><span data-slate-string="true">一个是并不真的去复制一个原型对象，而是使得新对象持有一个原型的引用；</span></span></span>
+                                        </div>
+                                        <div class="se-2214a3e1 se-59d50fb3" data-slate-type="list-line"
+                                             data-slate-object="block" data-key="50"><span data-slate-object="text"
+                                                                                           data-key="51"><span
+                                                data-slate-leaf="true" data-offset-key="51:0"
+                                                data-first-offset="true"><span data-slate-string="true">另一个是切实地复制对象，从此两个对象再无关联。</span></span></span>
+                                        </div>
+                                    </div>
+                                    <div class="se-04f36328 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="52"><span data-slate-object="text" data-key="53"><span
+                                            data-slate-leaf="true" data-offset-key="53:0" data-first-offset="true"><span
+                                            data-slate-string="true">历史上的基于原型语言因此产生了两个流派，显然，JavaScript 显然选择了前一种方式。</span></span></span>
+                                    </div>
+                                    <h2 class="se-1818be71" data-slate-type="heading" data-slate-object="block"
+                                        data-key="54"><span data-slate-object="text" data-key="55"><span
+                                            data-slate-leaf="true" data-offset-key="55:0" data-first-offset="true"><span
+                                            data-slate-string="true">JavaScript 的原型</span></span></span></h2>
+                                    <div class="se-5fd0f2e9 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="56"><span data-slate-object="text" data-key="57"><span
+                                            data-slate-leaf="true" data-offset-key="57:0" data-first-offset="true"><span
+                                            data-slate-string="true">如果我们抛开 JavaScript 用于模拟 Java 类的复杂语法设施（如 new、Function Object、函数的 prototype 属性等），原型系统可以说相当简单，我可以用两条概括：</span></span></span>
+                                    </div>
+                                    <div class="se-0c262c35" data-slate-type="list" data-slate-object="block"
+                                         data-key="58">
+                                        <div class="se-04eaabb5 se-41426b36" data-slate-type="list-line"
+                                             data-slate-object="block" data-key="59"><span data-slate-object="text"
+                                                                                           data-key="60"><span
+                                                data-slate-leaf="true" data-offset-key="60:0"
+                                                data-first-offset="true"><span data-slate-string="true">如果所有对象都有私有字段 [[prototype]]，就是对象的原型；</span></span></span>
+                                        </div>
+                                        <div class="se-1d8a7a37 se-c94308a5" data-slate-type="list-line"
+                                             data-slate-object="block" data-key="61"><span data-slate-object="text"
+                                                                                           data-key="62"><span
+                                                data-slate-leaf="true" data-offset-key="62:0"
+                                                data-first-offset="true"><span data-slate-string="true">读一个属性，如果对象本身没有，则会继续访问对象的原型，直到原型为空或者找到为止。</span></span></span>
+                                        </div>
+                                    </div>
+                                    <div class="se-660b69e5 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="63"><span data-slate-object="text" data-key="64"><span
+                                            data-slate-leaf="true" data-offset-key="64:0" data-first-offset="true"><span
+                                            data-slate-string="true">这个模型在 ES 的各个历史版本中并没有很大改变，但从 ES6 以来，JavaScript 提供了一系列内置函数，以便更为直接地访问操纵原型。三个方法分别为：</span></span></span>
+                                    </div>
+                                    <div class="se-851a24b8" data-slate-type="list" data-slate-object="block"
+                                         data-key="65">
+                                        <div class="se-4d608d2c se-6ed61c56" data-slate-type="list-line"
+                                             data-slate-object="block" data-key="66"><span data-slate-object="text"
+                                                                                           data-key="67"><span
+                                                data-slate-leaf="true" data-offset-key="67:0"
+                                                data-first-offset="true"><span data-slate-string="true">Object.create 根据指定的原型创建新对象，原型可以是 null；</span></span></span>
+                                        </div>
+                                        <div class="se-0a9f54cd se-75a69ec8" data-slate-type="list-line"
+                                             data-slate-object="block" data-key="68"><span data-slate-object="text"
+                                                                                           data-key="69"><span
+                                                data-slate-leaf="true" data-offset-key="69:0"
+                                                data-first-offset="true"><span data-slate-string="true">Object.getPrototypeOf 获得一个对象的原型；</span></span></span>
+                                        </div>
+                                        <div class="se-59208f4e se-2c0f64de" data-slate-type="list-line"
+                                             data-slate-object="block" data-key="70"><span data-slate-object="text"
+                                                                                           data-key="71"><span
+                                                data-slate-leaf="true" data-offset-key="71:0"
+                                                data-first-offset="true"><span data-slate-string="true">Object.setPrototypeOf 设置一个对象的原型。</span></span></span>
+                                        </div>
+                                    </div>
+                                    <div class="se-7ad19102 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="72"><span data-slate-object="text" data-key="73"><span
+                                            data-slate-leaf="true" data-offset-key="73:0" data-first-offset="true"><span
+                                            data-slate-string="true">利用这三个方法，我们可以完全抛开类的思维，利用原型来实现抽象和复用。我用下面的代码展示了用原型来抽象猫和虎的例子。</span></span></span>
+                                    </div>
+                                    <div class="se-4d3f93d8 se-8464cc04" data-slate-type="pre" data-slate-object="block"
+                                         data-key="74">
+                                        <div class="se-c1464cb7"></div>
+                                        <div class="se-e30cf2b3 ps" style="border: 1px solid red;">
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="75"><span data-slate-object="text"
+                                                                                               data-key="76"><span
+                                                    data-slate-leaf="true" data-offset-key="76:0"
+                                                    data-first-offset="true"><span
+                                                    data-slate-string="true">var cat = {</span></span></span></div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="77"><span data-slate-object="text"
+                                                                                               data-key="78"><span
+                                                    data-slate-leaf="true" data-offset-key="78:0"
+                                                    data-first-offset="true"><span
+                                                    data-slate-string="true">    say(){</span></span></span></div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="79"><span data-slate-object="text"
+                                                                                               data-key="80"><span
+                                                    data-slate-leaf="true" data-offset-key="80:0"
+                                                    data-first-offset="true"><span data-slate-string="true">        console.log("meow~");</span></span></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="81"><span data-slate-object="text"
+                                                                                               data-key="82"><span
+                                                    data-slate-leaf="true" data-offset-key="82:0"
+                                                    data-first-offset="true"><span
+                                                    data-slate-string="true">    },</span></span></span></div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="83"><span data-slate-object="text"
+                                                                                               data-key="84"><span
+                                                    data-slate-leaf="true" data-offset-key="84:0"
+                                                    data-first-offset="true"><span
+                                                    data-slate-string="true">    jump(){</span></span></span></div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="85"><span data-slate-object="text"
+                                                                                               data-key="86"><span
+                                                    data-slate-leaf="true" data-offset-key="86:0"
+                                                    data-first-offset="true"><span data-slate-string="true">        console.log("jump");</span></span></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="87"><span data-slate-object="text"
+                                                                                               data-key="88"><span
+                                                    data-slate-leaf="true" data-offset-key="88:0"
+                                                    data-first-offset="true"><span data-slate-string="true">    }</span></span></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="89"><span data-slate-object="text"
+                                                                                               data-key="90"><span
+                                                    data-slate-leaf="true" data-offset-key="90:0"
+                                                    data-first-offset="true"><span
+                                                    data-slate-string="true">}</span></span></span></div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="91"><span data-slate-object="text"
+                                                                                               data-key="92"></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="93"><span data-slate-object="text"
+                                                                                               data-key="94"><span
+                                                    data-slate-leaf="true" data-offset-key="94:0"
+                                                    data-first-offset="true"><span data-slate-string="true">var tiger = Object.create(cat,  {</span></span></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="95"><span data-slate-object="text"
+                                                                                               data-key="96"><span
+                                                    data-slate-leaf="true" data-offset-key="96:0"
+                                                    data-first-offset="true"><span
+                                                    data-slate-string="true">    say:{</span></span></span></div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="97"><span data-slate-object="text"
+                                                                                               data-key="98"><span
+                                                    data-slate-leaf="true" data-offset-key="98:0"
+                                                    data-first-offset="true"><span data-slate-string="true">        writable:true,</span></span></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="99"><span data-slate-object="text"
+                                                                                               data-key="100"><span
+                                                    data-slate-leaf="true" data-offset-key="100:0"
+                                                    data-first-offset="true"><span data-slate-string="true">        configurable:true,</span></span></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="101"><span data-slate-object="text"
+                                                                                                data-key="102"><span
+                                                    data-slate-leaf="true" data-offset-key="102:0"
+                                                    data-first-offset="true"><span data-slate-string="true">        enumerable:true,</span></span></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="103"><span data-slate-object="text"
+                                                                                                data-key="104"><span
+                                                    data-slate-leaf="true" data-offset-key="104:0"
+                                                    data-first-offset="true"><span data-slate-string="true">        value:function(){</span></span></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="105"><span data-slate-object="text"
+                                                                                                data-key="106"><span
+                                                    data-slate-leaf="true" data-offset-key="106:0"
+                                                    data-first-offset="true"><span data-slate-string="true">            console.log("roar!");</span></span></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="107"><span data-slate-object="text"
+                                                                                                data-key="108"><span
+                                                    data-slate-leaf="true" data-offset-key="108:0"
+                                                    data-first-offset="true"><span
+                                                    data-slate-string="true">        }</span></span></span></div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="109"><span data-slate-object="text"
+                                                                                                data-key="110"><span
+                                                    data-slate-leaf="true" data-offset-key="110:0"
+                                                    data-first-offset="true"><span data-slate-string="true">    }</span></span></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="111"><span data-slate-object="text"
+                                                                                                data-key="112"><span
+                                                    data-slate-leaf="true" data-offset-key="112:0"
+                                                    data-first-offset="true"><span
+                                                    data-slate-string="true">})</span></span></span></div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="113"><span data-slate-object="text"
+                                                                                                data-key="114"></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="115"><span data-slate-object="text"
+                                                                                                data-key="116"></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="117"><span data-slate-object="text"
+                                                                                                data-key="118"><span
+                                                    data-slate-leaf="true" data-offset-key="118:0"
+                                                    data-first-offset="true"><span data-slate-string="true">var anotherCat = Object.create(cat);</span></span></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="119"><span data-slate-object="text"
+                                                                                                data-key="120"></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="121"><span data-slate-object="text"
+                                                                                                data-key="122"><span
+                                                    data-slate-leaf="true" data-offset-key="122:0"
+                                                    data-first-offset="true"><span data-slate-string="true">anotherCat.say();</span></span></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="123"><span data-slate-object="text"
+                                                                                                data-key="124"></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="125"><span data-slate-object="text"
+                                                                                                data-key="126"><span
+                                                    data-slate-leaf="true" data-offset-key="126:0"
+                                                    data-first-offset="true"><span data-slate-string="true">var anotherTiger = Object.create(tiger);</span></span></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="127"><span data-slate-object="text"
+                                                                                                data-key="128"></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="129"><span data-slate-object="text"
+                                                                                                data-key="130"><span
+                                                    data-slate-leaf="true" data-offset-key="130:0"
+                                                    data-first-offset="true"><span data-slate-string="true">anotherTiger.say();</span></span></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="131"><span data-slate-object="text"
+                                                                                                data-key="132"></span>
+                                            </div>
+                                            <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+                                                <div class="ps__thumb-x" tabindex="0"
+                                                     style="left: 0px; width: 0px;"></div>
+                                            </div>
+                                            <div class="ps__rail-y" style="top: 0px; right: 0px;">
+                                                <div class="ps__thumb-y" tabindex="0"
+                                                     style="top: 0px; height: 0px;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="se-bb2d0086 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="133"><span data-slate-object="text" data-key="134"><span
+                                            data-slate-leaf="true" data-offset-key="134:0"
+                                            data-first-offset="true"><span data-slate-string="true">这段代码创建了一个“猫”对象，又根据猫做了一些修改创建了虎，之后我们完全可以用 Object.create 来创建另外的猫和虎对象，我们可以通过“原始猫对象”和“原始虎对象”来控制所有猫和虎的行为。</span></span></span>
+                                    </div>
+                                    <div class="se-662950fe " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="135"><span data-slate-object="text" data-key="136"><span
+                                            data-slate-leaf="true" data-offset-key="136:0"
+                                            data-first-offset="true"><span data-slate-string="true">但是，在更早的版本中，程序员只能通过 Java 风格的类接口来操纵原型运行时，可以说非常别扭。</span></span></span>
+                                    </div>
+                                    <div class="se-07841226 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="137"><span data-slate-object="text" data-key="138"><span
+                                            data-slate-leaf="true" data-offset-key="138:0"
+                                            data-first-offset="true"><span data-slate-string="true">考虑到 new 和 prototype 属性等基础设施今天仍然有效，而且被很多代码使用，学习这些知识也有助于我们理解运行时的原型工作原理，下面我们试着回到过去，追溯一下早年的 JavaScript 中的原型和类。</span></span></span>
+                                    </div>
+                                    <h2 class="se-ae078a51" data-slate-type="heading" data-slate-object="block"
+                                        data-key="139"><span data-slate-object="text" data-key="140"><span
+                                            data-slate-leaf="true" data-offset-key="140:0"
+                                            data-first-offset="true"><span
+                                            data-slate-string="true">早期版本中的类与原型</span></span></span></h2>
+                                    <div class="se-b717039c " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="141"><span data-slate-object="text" data-key="142"><span
+                                            data-slate-leaf="true" data-offset-key="142:0"
+                                            data-first-offset="true"><span data-slate-string="true">在早期版本的 JavaScript 中，“类”的定义是一个私有属性 [[class]]，语言标准为内置类型诸如 Number、String、Date 等指定了 [[class]] 属性，以表示它们的类。语言使用者唯一可以访问 [[class]] 属性的方式是 Object.prototype.toString。</span></span></span>
+                                    </div>
+                                    <div class="se-c5972dc3 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="143"><span data-slate-object="text" data-key="144"><span
+                                            data-slate-leaf="true" data-offset-key="144:0"
+                                            data-first-offset="true"><span data-slate-string="true">以下代码展示了所有具有内置 class 属性的对象：</span></span></span>
+                                    </div>
+                                    <div class="se-364e505c se-3bb365d4" data-slate-type="pre" data-slate-object="block"
+                                         data-key="145">
+                                        <div class="se-68504b90"></div>
+                                        <div class="se-58c8129d ps ps--active-x" style="border: 1px solid red;">
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="146"><span data-slate-object="text"
+                                                                                                data-key="147"><span
+                                                    data-slate-leaf="true" data-offset-key="147:0"
+                                                    data-first-offset="true"><span data-slate-string="true">    var o = new Object;</span></span></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="148"><span data-slate-object="text"
+                                                                                                data-key="149"><span
+                                                    data-slate-leaf="true" data-offset-key="149:0"
+                                                    data-first-offset="true"><span data-slate-string="true">    var n = new Number;</span></span></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="150"><span data-slate-object="text"
+                                                                                                data-key="151"><span
+                                                    data-slate-leaf="true" data-offset-key="151:0"
+                                                    data-first-offset="true"><span data-slate-string="true">    var s = new String;</span></span></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="152"><span data-slate-object="text"
+                                                                                                data-key="153"><span
+                                                    data-slate-leaf="true" data-offset-key="153:0"
+                                                    data-first-offset="true"><span data-slate-string="true">    var b = new Boolean;</span></span></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="154"><span data-slate-object="text"
+                                                                                                data-key="155"><span
+                                                    data-slate-leaf="true" data-offset-key="155:0"
+                                                    data-first-offset="true"><span data-slate-string="true">    var d = new Date;</span></span></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="156"><span data-slate-object="text"
+                                                                                                data-key="157"><span
+                                                    data-slate-leaf="true" data-offset-key="157:0"
+                                                    data-first-offset="true"><span data-slate-string="true">    var arg = function(){ return arguments }();</span></span></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="158"><span data-slate-object="text"
+                                                                                                data-key="159"><span
+                                                    data-slate-leaf="true" data-offset-key="159:0"
+                                                    data-first-offset="true"><span data-slate-string="true">    var r = new RegExp;</span></span></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="160"><span data-slate-object="text"
+                                                                                                data-key="161"><span
+                                                    data-slate-leaf="true" data-offset-key="161:0"
+                                                    data-first-offset="true"><span data-slate-string="true">    var f = new Function;</span></span></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="162"><span data-slate-object="text"
+                                                                                                data-key="163"><span
+                                                    data-slate-leaf="true" data-offset-key="163:0"
+                                                    data-first-offset="true"><span data-slate-string="true">    var arr = new Array;</span></span></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="164"><span data-slate-object="text"
+                                                                                                data-key="165"><span
+                                                    data-slate-leaf="true" data-offset-key="165:0"
+                                                    data-first-offset="true"><span data-slate-string="true">    var e = new Error;</span></span></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="166"><span data-slate-object="text"
+                                                                                                data-key="167"><span
+                                                    data-slate-leaf="true" data-offset-key="167:0"
+                                                    data-first-offset="true"><span data-slate-string="true">    console.log([o, n, s, b, d, arg, r, f, arr, e].map(v =&gt; Object.prototype.toString.call(v))); </span></span></span>
+                                            </div>
+                                            <div class="ps__rail-x" style="width: 610px; left: 0px; bottom: 0px;">
+                                                <div class="ps__thumb-x" tabindex="0"
+                                                     style="left: 0px; width: 491px;"></div>
+                                            </div>
+                                            <div class="ps__rail-y" style="top: 0px; right: 0px;">
+                                                <div class="ps__thumb-y" tabindex="0"
+                                                     style="top: 0px; height: 0px;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="se-18c9dd19 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="168"><span data-slate-object="text" data-key="169"><span
+                                            data-slate-leaf="true" data-offset-key="169:0"
+                                            data-first-offset="true"><span data-slate-string="true">因此，在 ES3 和之前的版本，JS 中类的概念是相当弱的，它仅仅是运行时的一个字符串属性。</span></span></span>
+                                    </div>
+                                    <div class="se-47b2e5e6 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="170"><span data-slate-object="text" data-key="171"><span
+                                            data-slate-leaf="true" data-offset-key="171:0"
+                                            data-first-offset="true"><span data-slate-string="true">在 ES5 开始，[[class]] 私有属性被 Symbol.toStringTag 代替，Object.prototype.toString 的意义从命名上不再跟 class 相关。我们甚至可以自定义 Object.prototype.toString 的行为，以下代码展示了使用 Symbol.toStringTag 来自定义 Object.prototype.toString 的行为：</span></span></span>
+                                    </div>
+                                    <div class="se-ad6ee19b se-96fac3c1" data-slate-type="pre" data-slate-object="block"
+                                         data-key="172">
+                                        <div class="se-c2133828"></div>
+                                        <div class="se-34911ced ps" style="border: 1px solid red;">
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="173"><span data-slate-object="text"
+                                                                                                data-key="174"><span
+                                                    data-slate-leaf="true" data-offset-key="174:0"
+                                                    data-first-offset="true"><span data-slate-string="true">    var o = { [Symbol.toStringTag]: "MyObject" }</span></span></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="175"><span data-slate-object="text"
+                                                                                                data-key="176"><span
+                                                    data-slate-leaf="true" data-offset-key="176:0"
+                                                    data-first-offset="true"><span data-slate-string="true">    console.log(o + "");</span></span></span>
+                                            </div>
+                                            <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+                                                <div class="ps__thumb-x" tabindex="0"
+                                                     style="left: 0px; width: 0px;"></div>
+                                            </div>
+                                            <div class="ps__rail-y" style="top: 0px; right: 0px;">
+                                                <div class="ps__thumb-y" tabindex="0"
+                                                     style="top: 0px; height: 0px;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="se-860782d5 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="177"><span data-slate-object="text" data-key="178"><span
+                                            data-slate-leaf="true" data-offset-key="178:0"
+                                            data-first-offset="true"><span data-slate-string="true">这里创建了一个新对象，并且给它唯一的一个属性 Symbol.toStringTag，我们用字符串加法触发了 Object.prototype.toString 的调用，发现这个属性最终对 Object.prototype.toString 的结果产生了影响。</span></span></span>
+                                    </div>
+                                    <div class="se-0235dfd2 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="179"><span data-slate-object="text" data-key="180"><span
+                                            data-slate-leaf="true" data-offset-key="180:0"
+                                            data-first-offset="true"><span data-slate-string="true">但是，考虑到 JavaScript 语法中跟 Java 相似的部分，我们对类的讨论不能用“new 运算是针对构造器对象，而不是类”来试图回避。</span></span></span>
+                                    </div>
+                                    <div class="se-aaf88635 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="181"><span data-slate-object="text" data-key="182"><span
+                                            data-slate-leaf="true" data-offset-key="182:0"
+                                            data-first-offset="true"><span data-slate-string="true">所以，我们仍然要把 new 理解成 JavaScript 面向对象的一部分，下面我就来讲一下 new 操作具体做了哪些事情。</span></span></span>
+                                    </div>
+                                    <div class="se-8faf657c " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="183"><span data-slate-object="text" data-key="184"><span
+                                            data-slate-leaf="true" data-offset-key="184:0"
+                                            data-first-offset="true"><span data-slate-string="true">new 运算接受一个构造器和一组调用参数，实际上做了几件事：</span></span></span>
+                                    </div>
+                                    <div class="se-f7c1035f" data-slate-type="list" data-slate-object="block"
+                                         data-key="185">
+                                        <div class="se-363e4f39 se-f07e03d6" data-slate-type="list-line"
+                                             data-slate-object="block" data-key="186"><span data-slate-object="text"
+                                                                                            data-key="187"><span
+                                                data-slate-leaf="true" data-offset-key="187:0" data-first-offset="true"><span
+                                                data-slate-string="true">以构造器的 prototype 属性（注意与私有字段 [[prototype]] 的区分）为原型，创建新对象；</span></span></span>
+                                        </div>
+                                        <div class="se-4e782d9b se-3f29f199" data-slate-type="list-line"
+                                             data-slate-object="block" data-key="188"><span data-slate-object="text"
+                                                                                            data-key="189"><span
+                                                data-slate-leaf="true" data-offset-key="189:0" data-first-offset="true"><span
+                                                data-slate-string="true">将 this 和调用参数传给构造器，执行；</span></span></span>
+                                        </div>
+                                        <div class="se-cafe9ba4 se-5838bd6c" data-slate-type="list-line"
+                                             data-slate-object="block" data-key="190"><span data-slate-object="text"
+                                                                                            data-key="191"><span
+                                                data-slate-leaf="true" data-offset-key="191:0" data-first-offset="true"><span
+                                                data-slate-string="true">如果构造器返回的是对象，则返回，否则返回第一步创建的对象。</span></span></span>
+                                        </div>
+                                    </div>
+                                    <div class="se-359201f9 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="192"><span data-slate-object="text" data-key="193"><span
+                                            data-slate-leaf="true" data-offset-key="193:0"
+                                            data-first-offset="true"><span data-slate-string="true">new 这样的行为，试图让函数对象在语法上跟类变得相似，但是，它客观上提供了两种方式，一是在构造器中添加属性，二是在构造器的 prototype 属性上添加属性。</span></span></span>
+                                    </div>
+                                    <div class="se-122a69ee " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="194"><span data-slate-object="text" data-key="195"><span
+                                            data-slate-leaf="true" data-offset-key="195:0"
+                                            data-first-offset="true"><span
+                                            data-slate-string="true">下面代码展示了用构造器模拟类的两种方法:</span></span></span></div>
+                                    <div class="se-cef625fd se-deebdd48" data-slate-type="pre" data-slate-object="block"
+                                         data-key="196">
+                                        <div class="se-4a19544e"></div>
+                                        <div class="se-d8de6dd7 ps" style="border: 1px solid red;">
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="197"><span data-slate-object="text"
+                                                                                                data-key="198"></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="199"><span data-slate-object="text"
+                                                                                                data-key="200"><span
+                                                    data-slate-leaf="true" data-offset-key="200:0"
+                                                    data-first-offset="true"><span data-slate-string="true">function c1(){</span></span></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="201"><span data-slate-object="text"
+                                                                                                data-key="202"><span
+                                                    data-slate-leaf="true" data-offset-key="202:0"
+                                                    data-first-offset="true"><span data-slate-string="true">    this.p1 = 1;</span></span></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="203"><span data-slate-object="text"
+                                                                                                data-key="204"><span
+                                                    data-slate-leaf="true" data-offset-key="204:0"
+                                                    data-first-offset="true"><span data-slate-string="true">    this.p2 = function(){</span></span></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="205"><span data-slate-object="text"
+                                                                                                data-key="206"><span
+                                                    data-slate-leaf="true" data-offset-key="206:0"
+                                                    data-first-offset="true"><span data-slate-string="true">        console.log(this.p1);</span></span></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="207"><span data-slate-object="text"
+                                                                                                data-key="208"><span
+                                                    data-slate-leaf="true" data-offset-key="208:0"
+                                                    data-first-offset="true"><span data-slate-string="true">    }</span></span></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="209"><span data-slate-object="text"
+                                                                                                data-key="210"><span
+                                                    data-slate-leaf="true" data-offset-key="210:0"
+                                                    data-first-offset="true"><span
+                                                    data-slate-string="true">} </span></span></span></div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="211"><span data-slate-object="text"
+                                                                                                data-key="212"><span
+                                                    data-slate-leaf="true" data-offset-key="212:0"
+                                                    data-first-offset="true"><span data-slate-string="true">var o1 = new c1;</span></span></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="213"><span data-slate-object="text"
+                                                                                                data-key="214"><span
+                                                    data-slate-leaf="true" data-offset-key="214:0"
+                                                    data-first-offset="true"><span
+                                                    data-slate-string="true">o1.p2();</span></span></span></div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="215"><span data-slate-object="text"
+                                                                                                data-key="216"></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="217"><span data-slate-object="text"
+                                                                                                data-key="218"></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="219"><span data-slate-object="text"
+                                                                                                data-key="220"></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="221"><span data-slate-object="text"
+                                                                                                data-key="222"><span
+                                                    data-slate-leaf="true" data-offset-key="222:0"
+                                                    data-first-offset="true"><span data-slate-string="true">function c2(){</span></span></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="223"><span data-slate-object="text"
+                                                                                                data-key="224"><span
+                                                    data-slate-leaf="true" data-offset-key="224:0"
+                                                    data-first-offset="true"><span
+                                                    data-slate-string="true">}</span></span></span></div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="225"><span data-slate-object="text"
+                                                                                                data-key="226"><span
+                                                    data-slate-leaf="true" data-offset-key="226:0"
+                                                    data-first-offset="true"><span data-slate-string="true">c2.prototype.p1 = 1;</span></span></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="227"><span data-slate-object="text"
+                                                                                                data-key="228"><span
+                                                    data-slate-leaf="true" data-offset-key="228:0"
+                                                    data-first-offset="true"><span data-slate-string="true">c2.prototype.p2 = function(){</span></span></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="229"><span data-slate-object="text"
+                                                                                                data-key="230"><span
+                                                    data-slate-leaf="true" data-offset-key="230:0"
+                                                    data-first-offset="true"><span data-slate-string="true">    console.log(this.p1);</span></span></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="231"><span data-slate-object="text"
+                                                                                                data-key="232"><span
+                                                    data-slate-leaf="true" data-offset-key="232:0"
+                                                    data-first-offset="true"><span
+                                                    data-slate-string="true">}</span></span></span></div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="233"><span data-slate-object="text"
+                                                                                                data-key="234"></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="235"><span data-slate-object="text"
+                                                                                                data-key="236"><span
+                                                    data-slate-leaf="true" data-offset-key="236:0"
+                                                    data-first-offset="true"><span data-slate-string="true">var o2 = new c2;</span></span></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="237"><span data-slate-object="text"
+                                                                                                data-key="238"><span
+                                                    data-slate-leaf="true" data-offset-key="238:0"
+                                                    data-first-offset="true"><span
+                                                    data-slate-string="true">o2.p2();</span></span></span></div>
+                                            <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+                                                <div class="ps__thumb-x" tabindex="0"
+                                                     style="left: 0px; width: 0px;"></div>
+                                            </div>
+                                            <div class="ps__rail-y" style="top: 0px; right: 0px;">
+                                                <div class="ps__thumb-y" tabindex="0"
+                                                     style="top: 0px; height: 0px;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="se-9679e658 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="239"><span data-slate-object="text" data-key="240"><span
+                                            data-slate-leaf="true" data-offset-key="240:0"
+                                            data-first-offset="true"><span data-slate-string="true">第一种方法是直接在构造器中修改 this，给 this 添加属性。</span></span></span>
+                                    </div>
+                                    <div class="se-b4db3eae " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="241"><span data-slate-object="text" data-key="242"><span
+                                            data-slate-leaf="true" data-offset-key="242:0"
+                                            data-first-offset="true"><span data-slate-string="true">第二种方法是修改构造器的 prototype 属性指向的对象，它是从这个构造器构造出来的所有对象的原型。</span></span></span>
+                                    </div>
+                                    <div class="se-8eb7c47c " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="243"><span data-slate-object="text" data-key="244"><span
+                                            data-slate-leaf="true" data-offset-key="244:0"
+                                            data-first-offset="true"><span data-slate-string="true">没有 Object.create、Object.setPrototypeOf 的早期版本中，new 运算是唯一一个可以指定 [[prototype]] 的方法（当时的 mozilla 提供了私有属性 __proto__，但是多数环境并不支持），所以，当时已经有人试图用它来代替后来的 Object.create，我们甚至可以用它来实现一个 Object.create 的不完整的 polyfill，见以下代码：</span></span></span>
+                                    </div>
+                                    <div class="se-b1233c73 se-93f95820" data-slate-type="pre" data-slate-object="block"
+                                         data-key="245">
+                                        <div class="se-3bd0b2b0"></div>
+                                        <div class="se-750b1967 ps" style="border: 1px solid red;">
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="246"><span data-slate-object="text"
+                                                                                                data-key="247"><span
+                                                    data-slate-leaf="true" data-offset-key="247:0"
+                                                    data-first-offset="true"><span data-slate-string="true">Object.create = function(prototype){</span></span></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="248"><span data-slate-object="text"
+                                                                                                data-key="249"><span
+                                                    data-slate-leaf="true" data-offset-key="249:0"
+                                                    data-first-offset="true"><span data-slate-string="true">    var cls = function(){}</span></span></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="250"><span data-slate-object="text"
+                                                                                                data-key="251"><span
+                                                    data-slate-leaf="true" data-offset-key="251:0"
+                                                    data-first-offset="true"><span data-slate-string="true">    cls.prototype = prototype;</span></span></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="252"><span data-slate-object="text"
+                                                                                                data-key="253"><span
+                                                    data-slate-leaf="true" data-offset-key="253:0"
+                                                    data-first-offset="true"><span data-slate-string="true">    return new cls;</span></span></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="254"><span data-slate-object="text"
+                                                                                                data-key="255"><span
+                                                    data-slate-leaf="true" data-offset-key="255:0"
+                                                    data-first-offset="true"><span
+                                                    data-slate-string="true">}</span></span></span></div>
+                                            <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+                                                <div class="ps__thumb-x" tabindex="0"
+                                                     style="left: 0px; width: 0px;"></div>
+                                            </div>
+                                            <div class="ps__rail-y" style="top: 0px; right: 0px;">
+                                                <div class="ps__thumb-y" tabindex="0"
+                                                     style="top: 0px; height: 0px;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="se-6cbb3a74 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="256"><span data-slate-object="text" data-key="257"><span
+                                            data-slate-leaf="true" data-offset-key="257:0"
+                                            data-first-offset="true"><span data-slate-string="true">这段代码创建了一个空函数作为类，并把传入的原型挂在了它的 prototype，最后创建了一个它的实例，根据 new 的行为，这将产生一个以传入的第一个参数为原型的对象。</span></span></span>
+                                    </div>
+                                    <div class="se-4b1c1059 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="258"><span data-slate-object="text" data-key="259"><span
+                                            data-slate-leaf="true" data-offset-key="259:0"
+                                            data-first-offset="true"><span data-slate-string="true">这个函数无法做到与原生的 Object.create 一致，一个是不支持第二个参数，另一个是不支持 null 作为原型，所以放到今天意义已经不大了。</span></span></span>
+                                    </div>
+                                    <h2 class="se-12212111" data-slate-type="heading" data-slate-object="block"
+                                        data-key="260"><span data-slate-object="text" data-key="261"><span
+                                            data-slate-leaf="true" data-offset-key="261:0"
+                                            data-first-offset="true"><span
+                                            data-slate-string="true">ES6 中的类</span></span></span></h2>
+                                    <div class="se-84824880 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="262"><span data-slate-object="text" data-key="263"><span
+                                            data-slate-leaf="true" data-offset-key="263:0"
+                                            data-first-offset="true"><span data-slate-string="true">好在 ES6 中加入了新特性 class，new 跟 function 搭配的怪异行为终于可以退休了（虽然运行时没有改变），在任何场景，我都推荐使用 ES6 的语法来定义类，而令 function 回归原本的函数语义。下面我们就来看一下 ES6 中的类。</span></span></span>
+                                    </div>
+                                    <div class="se-af05da2a " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="264"><span data-slate-object="text" data-key="265"><span
+                                            data-slate-leaf="true" data-offset-key="265:0"
+                                            data-first-offset="true"><span data-slate-string="true">ES6 中引入了 class 关键字，并且在标准中删除了所有 [[class]] 相关的私有属性描述，类的概念正式从属性升级成语言的基础设施，从此，基于类的编程方式成为了 JavaScript 的官方编程范式。</span></span></span>
+                                    </div>
+                                    <div class="se-5060cab9 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="266"><span data-slate-object="text" data-key="267"><span
+                                            data-slate-leaf="true" data-offset-key="267:0"
+                                            data-first-offset="true"><span data-slate-string="true">我们先看下类的基本写法：</span></span></span>
+                                    </div>
+                                    <div class="se-c02b8bb1 se-8df27b7c" data-slate-type="pre" data-slate-object="block"
+                                         data-key="268">
+                                        <div class="se-bbe17ace"></div>
+                                        <div class="se-3e294acd ps" style="border: 1px solid red;">
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="269"><span data-slate-object="text"
+                                                                                                data-key="270"><span
+                                                    data-slate-leaf="true" data-offset-key="270:0"
+                                                    data-first-offset="true"><span data-slate-string="true">class Rectangle {</span></span></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="271"><span data-slate-object="text"
+                                                                                                data-key="272"><span
+                                                    data-slate-leaf="true" data-offset-key="272:0"
+                                                    data-first-offset="true"><span data-slate-string="true">  constructor(height, width) {</span></span></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="273"><span data-slate-object="text"
+                                                                                                data-key="274"><span
+                                                    data-slate-leaf="true" data-offset-key="274:0"
+                                                    data-first-offset="true"><span data-slate-string="true">    this.height = height;</span></span></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="275"><span data-slate-object="text"
+                                                                                                data-key="276"><span
+                                                    data-slate-leaf="true" data-offset-key="276:0"
+                                                    data-first-offset="true"><span data-slate-string="true">    this.width = width;</span></span></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="277"><span data-slate-object="text"
+                                                                                                data-key="278"><span
+                                                    data-slate-leaf="true" data-offset-key="278:0"
+                                                    data-first-offset="true"><span
+                                                    data-slate-string="true">  }</span></span></span></div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="279"><span data-slate-object="text"
+                                                                                                data-key="280"><span
+                                                    data-slate-leaf="true" data-offset-key="280:0"
+                                                    data-first-offset="true"><span
+                                                    data-slate-string="true">  // Getter</span></span></span></div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="281"><span data-slate-object="text"
+                                                                                                data-key="282"><span
+                                                    data-slate-leaf="true" data-offset-key="282:0"
+                                                    data-first-offset="true"><span data-slate-string="true">  get area() {</span></span></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="283"><span data-slate-object="text"
+                                                                                                data-key="284"><span
+                                                    data-slate-leaf="true" data-offset-key="284:0"
+                                                    data-first-offset="true"><span data-slate-string="true">    return this.calcArea();</span></span></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="285"><span data-slate-object="text"
+                                                                                                data-key="286"><span
+                                                    data-slate-leaf="true" data-offset-key="286:0"
+                                                    data-first-offset="true"><span
+                                                    data-slate-string="true">  }</span></span></span></div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="287"><span data-slate-object="text"
+                                                                                                data-key="288"><span
+                                                    data-slate-leaf="true" data-offset-key="288:0"
+                                                    data-first-offset="true"><span
+                                                    data-slate-string="true">  // Method</span></span></span></div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="289"><span data-slate-object="text"
+                                                                                                data-key="290"><span
+                                                    data-slate-leaf="true" data-offset-key="290:0"
+                                                    data-first-offset="true"><span data-slate-string="true">  calcArea() {</span></span></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="291"><span data-slate-object="text"
+                                                                                                data-key="292"><span
+                                                    data-slate-leaf="true" data-offset-key="292:0"
+                                                    data-first-offset="true"><span data-slate-string="true">    return this.height * this.width;</span></span></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="293"><span data-slate-object="text"
+                                                                                                data-key="294"><span
+                                                    data-slate-leaf="true" data-offset-key="294:0"
+                                                    data-first-offset="true"><span
+                                                    data-slate-string="true">  }</span></span></span></div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="295"><span data-slate-object="text"
+                                                                                                data-key="296"><span
+                                                    data-slate-leaf="true" data-offset-key="296:0"
+                                                    data-first-offset="true"><span
+                                                    data-slate-string="true">}</span></span></span></div>
+                                            <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+                                                <div class="ps__thumb-x" tabindex="0"
+                                                     style="left: 0px; width: 0px;"></div>
+                                            </div>
+                                            <div class="ps__rail-y" style="top: 0px; right: 0px;">
+                                                <div class="ps__thumb-y" tabindex="0"
+                                                     style="top: 0px; height: 0px;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="se-e0408065 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="297"><span data-slate-object="text" data-key="298"><span
+                                            data-slate-leaf="true" data-offset-key="298:0"
+                                            data-first-offset="true"><span data-slate-string="true">在现有的类语法中，getter/setter 和 method 是兼容性最好的。</span></span></span>
+                                    </div>
+                                    <div class="se-b8d60442 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="299"><span data-slate-object="text" data-key="300"><span
+                                            data-slate-leaf="true" data-offset-key="300:0"
+                                            data-first-offset="true"><span data-slate-string="true">我们通过 get/set 关键字来创建 getter，通过括号和大括号来创建方法，数据型成员最好写在构造器里面。</span></span></span>
+                                    </div>
+                                    <div class="se-c72518e4 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="301"><span data-slate-object="text" data-key="302"><span
+                                            data-slate-leaf="true" data-offset-key="302:0"
+                                            data-first-offset="true"><span data-slate-string="true">类的写法实际上也是由原型运行时来承载的，逻辑上 JavaScript 认为每个类是有共同原型的一组对象，类中定义的方法和属性则会被写在原型对象之上。</span></span></span>
+                                    </div>
+                                    <div class="se-f050fc61 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="303"><span data-slate-object="text" data-key="304"><span
+                                            data-slate-leaf="true" data-offset-key="304:0"
+                                            data-first-offset="true"><span data-slate-string="true">此外，最重要的是，类提供了继承能力。我们来看一下下面的代码。</span></span></span>
+                                    </div>
+                                    <div class="se-f290f44c se-d798d3a0" data-slate-type="pre" data-slate-object="block"
+                                         data-key="305">
+                                        <div class="se-d033d6f1"></div>
+                                        <div class="se-74070c93 ps ps--active-x" style="border: 1px solid red;">
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="306"><span data-slate-object="text"
+                                                                                                data-key="307"><span
+                                                    data-slate-leaf="true" data-offset-key="307:0"
+                                                    data-first-offset="true"><span data-slate-string="true">class Animal { </span></span></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="308"><span data-slate-object="text"
+                                                                                                data-key="309"><span
+                                                    data-slate-leaf="true" data-offset-key="309:0"
+                                                    data-first-offset="true"><span data-slate-string="true">  constructor(name) {</span></span></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="310"><span data-slate-object="text"
+                                                                                                data-key="311"><span
+                                                    data-slate-leaf="true" data-offset-key="311:0"
+                                                    data-first-offset="true"><span data-slate-string="true">    this.name = name;</span></span></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="312"><span data-slate-object="text"
+                                                                                                data-key="313"><span
+                                                    data-slate-leaf="true" data-offset-key="313:0"
+                                                    data-first-offset="true"><span
+                                                    data-slate-string="true">  }</span></span></span></div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="314"><span data-slate-object="text"
+                                                                                                data-key="315"><span
+                                                    data-slate-leaf="true" data-offset-key="315:0"
+                                                    data-first-offset="true"><span
+                                                    data-slate-string="true">  </span></span></span></div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="316"><span data-slate-object="text"
+                                                                                                data-key="317"><span
+                                                    data-slate-leaf="true" data-offset-key="317:0"
+                                                    data-first-offset="true"><span
+                                                    data-slate-string="true">  speak() {</span></span></span></div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="318"><span data-slate-object="text"
+                                                                                                data-key="319"><span
+                                                    data-slate-leaf="true" data-offset-key="319:0"
+                                                    data-first-offset="true"><span data-slate-string="true">    console.log(this.name + ' makes a noise.');</span></span></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="320"><span data-slate-object="text"
+                                                                                                data-key="321"><span
+                                                    data-slate-leaf="true" data-offset-key="321:0"
+                                                    data-first-offset="true"><span
+                                                    data-slate-string="true">  }</span></span></span></div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="322"><span data-slate-object="text"
+                                                                                                data-key="323"><span
+                                                    data-slate-leaf="true" data-offset-key="323:0"
+                                                    data-first-offset="true"><span
+                                                    data-slate-string="true">}</span></span></span></div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="324"><span data-slate-object="text"
+                                                                                                data-key="325"></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="326"><span data-slate-object="text"
+                                                                                                data-key="327"><span
+                                                    data-slate-leaf="true" data-offset-key="327:0"
+                                                    data-first-offset="true"><span data-slate-string="true">class Dog extends Animal {</span></span></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="328"><span data-slate-object="text"
+                                                                                                data-key="329"><span
+                                                    data-slate-leaf="true" data-offset-key="329:0"
+                                                    data-first-offset="true"><span data-slate-string="true">  constructor(name) {</span></span></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="330"><span data-slate-object="text"
+                                                                                                data-key="331"><span
+                                                    data-slate-leaf="true" data-offset-key="331:0"
+                                                    data-first-offset="true"><span data-slate-string="true">    super(name); // call the super class constructor and pass in the name parameter</span></span></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="332"><span data-slate-object="text"
+                                                                                                data-key="333"><span
+                                                    data-slate-leaf="true" data-offset-key="333:0"
+                                                    data-first-offset="true"><span
+                                                    data-slate-string="true">  }</span></span></span></div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="334"><span data-slate-object="text"
+                                                                                                data-key="335"></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="336"><span data-slate-object="text"
+                                                                                                data-key="337"><span
+                                                    data-slate-leaf="true" data-offset-key="337:0"
+                                                    data-first-offset="true"><span
+                                                    data-slate-string="true">  speak() {</span></span></span></div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="338"><span data-slate-object="text"
+                                                                                                data-key="339"><span
+                                                    data-slate-leaf="true" data-offset-key="339:0"
+                                                    data-first-offset="true"><span data-slate-string="true">    console.log(this.name + ' barks.');</span></span></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="340"><span data-slate-object="text"
+                                                                                                data-key="341"><span
+                                                    data-slate-leaf="true" data-offset-key="341:0"
+                                                    data-first-offset="true"><span
+                                                    data-slate-string="true">  }</span></span></span></div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="342"><span data-slate-object="text"
+                                                                                                data-key="343"><span
+                                                    data-slate-leaf="true" data-offset-key="343:0"
+                                                    data-first-offset="true"><span
+                                                    data-slate-string="true">}</span></span></span></div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="344"><span data-slate-object="text"
+                                                                                                data-key="345"></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="346"><span data-slate-object="text"
+                                                                                                data-key="347"><span
+                                                    data-slate-leaf="true" data-offset-key="347:0"
+                                                    data-first-offset="true"><span data-slate-string="true">let d = new Dog('Mitzie');</span></span></span>
+                                            </div>
+                                            <div class="se-0a98dbf3 se-9ba6db2a" data-slate-type="code-line"
+                                                 data-slate-object="block" data-key="348"><span data-slate-object="text"
+                                                                                                data-key="349"><span
+                                                    data-slate-leaf="true" data-offset-key="349:0"
+                                                    data-first-offset="true"><span data-slate-string="true">d.speak(); // Mitzie barks.</span></span></span>
+                                            </div>
+                                            <div class="ps__rail-x" style="width: 610px; left: 0px; bottom: 0px;">
+                                                <div class="ps__thumb-x" tabindex="0"
+                                                     style="left: 0px; width: 574px;"></div>
+                                            </div>
+                                            <div class="ps__rail-y" style="top: 0px; right: 0px;">
+                                                <div class="ps__thumb-y" tabindex="0"
+                                                     style="top: 0px; height: 0px;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="se-4809cf68 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="350"><span data-slate-object="text" data-key="351"><span
+                                            data-slate-leaf="true" data-offset-key="351:0"
+                                            data-first-offset="true"><span data-slate-string="true">以上代码创造了 Animal 类，并且通过 extends 关键字让 Dog 继承了它，展示了最终调用子类的 speak 方法获取了父类的 name。</span></span></span>
+                                    </div>
+                                    <div class="se-484eec86 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="352"><span data-slate-object="text" data-key="353"><span
+                                            data-slate-leaf="true" data-offset-key="353:0"
+                                            data-first-offset="true"><span data-slate-string="true">比起早期的原型模拟方式，使用 extends 关键字自动设置了 constructor，并且会自动调用父类的构造函数，这是一种更少坑的设计。</span></span></span>
+                                    </div>
+                                    <div class="se-2c666e10 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="354"><span data-slate-object="text" data-key="355"><span
+                                            data-slate-leaf="true" data-offset-key="355:0"
+                                            data-first-offset="true"><span data-slate-string="true">所以当我们使用类的思想来设计代码时，应该尽量使用 class 来声明类，而不是用旧语法，拿函数来模拟对象。</span></span></span>
+                                    </div>
+                                    <div class="se-d17002d5 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="356"><span data-slate-object="text" data-key="357"><span
+                                            data-slate-leaf="true" data-offset-key="357:0"
+                                            data-first-offset="true"><span data-slate-string="true">一些激进的观点认为，class 关键字和箭头运算符可以完全替代旧的 function 关键字，它更明确地区分了定义函数和定义类两种意图，我认为这是有一定道理的。</span></span></span>
+                                    </div>
+                                    <h2 class="se-2b03f50d" data-slate-type="heading" data-slate-object="block"
+                                        data-key="358"><span data-slate-object="text" data-key="359"><span
+                                            data-slate-leaf="true" data-offset-key="359:0"
+                                            data-first-offset="true"><span
+                                            data-slate-string="true">总结</span></span></span></h2>
+                                    <div class="se-ab3e95ac " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="360"><span data-slate-object="text" data-key="361"><span
+                                            data-slate-leaf="true" data-offset-key="361:0"
+                                            data-first-offset="true"><span data-slate-string="true">在新的 ES 版本中，我们不再需要模拟类了：我们有了光明正大的新语法。而原型体系同时作为一种编程范式和运行时机制存在。</span></span></span>
+                                    </div>
+                                    <div class="se-7227c254 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="362"><span data-slate-object="text" data-key="363"><span
+                                            data-slate-leaf="true" data-offset-key="363:0"
+                                            data-first-offset="true"><span data-slate-string="true">我们可以自由选择原型或者类作为代码的抽象风格，但是无论我们选择哪种，理解运行时的原型系统都是很有必要的一件事。</span></span></span>
+                                    </div>
+                                    <div class="se-b53fcc8c " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="364"><span data-slate-object="text" data-key="365"><span
+                                            data-slate-leaf="true" data-offset-key="365:0"
+                                            data-first-offset="true"><span data-slate-string="true">在你的工作中，是使用 class 还是仍然在用 function 来定义“类”？为什么这么做？如何把使用 function 定义类的代码改造到 class 的新语法？</span></span></span>
+                                    </div>
+                                    <div class="se-fc93d602 " data-slate-type="paragraph" data-slate-object="block"
+                                         data-key="366"><span data-slate-object="text" data-key="367"><span
+                                            data-slate-leaf="true" data-offset-key="367:0"
+                                            data-first-offset="true"><span
+                                            data-slate-string="true">欢迎给我留言，我们一起讨论。</span></span></span></div>
+                                </div>
+                            </div> <!----> <!----></div>
+                        <div class="_2w-W27j5_0">
+                            <div class="O6lROQG3_0"></div>
+                            <div class="_1N2pD_iU_0"></div>
+                            <div class="D3bjEGOR_0">
+                                <div class="_3T3EUmr2_0 ps" style="border: 1px solid red;"><textarea
+                                        placeholder="将学到的知识总结成笔记，方便日后快速查找及复习" style="height: 240px;"></textarea>
+                                    <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+                                        <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+                                    </div>
+                                    <div class="ps__rail-y" style="top: 0px; right: 0px;">
+                                        <div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div>
+                                    </div>
+                                </div>
+                                <div class="_2XxzQqjL_0" style="display: none;">
+                                    <div class="_1KDQg3Bq_0">确认放弃笔记？</div>
+                                    <div class="mJWK5em0_0">放弃后所记笔记将不保留。</div>
+                                </div>
+                                <div class="_3tbfXQau_0" style="display: none;"></div>
+                            </div>
+                            <div class="_1Ax_ZpPk_0">
+                                <div class="_2OgrMv3n_0">取消</div>
+                                <div class="FKyaWb-t_0">完成</div> <!----> <!----> <!----></div>
+                            <div class="_3MpaRWpt_0"><span>0/1000字</span></div>
+                        </div>
+                        <div class="zbKHG1ec_0">
+                            <div class="tXxk8mk7_0">划线</div>
+                            <div class="_2YBWosuL_0"></div>
+                            <div class="_25lruFgJ_0"></div>
+                            <div class="_3wLabARi_0"></div>
+                            <div class="tXxk8mk7_0">笔记</div>
+                            <div class="_2YBWosuL_0"></div>
+                            <div class="tXxk8mk7_0">复制</div>
+                        </div>
+                    </div>
+                    <div class="_3qftfzyH_0">
+                        <div class="_2rnRKKqV_0">该试读文章来自付费专栏《重学前端》，如需阅读全部文章，<br>请订阅文章所属专栏。</div>
+                        <div class="CJJSHwZ8_0">立即订阅</div>
+                    </div>
+                </div>
+            </div>
+            <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+                <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+            </div>
+            <div class="ps__rail-y" style="top: 0px; right: 0px;">
+                <div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div>
+            </div>
+        </div>
+        <div class="_35V_pofE_0">
+            <div class="_19KVU7IX_0 iconfont OJ1-O2lA_0 _3zAMGadh_0"><span>94</span></div>
+            <div class="_3QWdWikl_0 iconfont OJ1-O2lA_0 _3zAMGadh_0"><span>99+</span></div>
+            <div class="P00Ux77Z_0 iconfont OJ1-O2lA_0 _3zAMGadh_0"></div>
+            <div class="_1GGnOK0Z_0 iconfont OJ1-O2lA_0 _3zAMGadh_0"></div>
+            <div class="_23jDaBCo_0 iconfont OJ1-O2lA_0 _3zAMGadh_0"></div> <!----> <!---->
+            <div class="FSrxdnjI_0 iconfont OJ1-O2lA_0 _3zAMGadh_0"><a href="//time.geekbang.org/download"
+                                                                       target="_blank"><span
+                    class="_2NDI-Prg_0"></span><span class="_15yXCNVi_0">下载<br>客户端</span></a></div>
+            <div class="_2nVCVrRU_0 iconfont OJ1-O2lA_0 _3zAMGadh_0"><span class="_2NDI-Prg_0"></span><span
+                    class="_15yXCNVi_0">返回<br>顶部</span></div>
+        </div>
+        <div class="k7LpsVQS_0"><!----></div> <!----></div>
+</div>
+<div class="_2sRsF5RP_0"></div>
+
+
+</body>
+</html>
