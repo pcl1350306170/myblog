@@ -3,7 +3,9 @@ $(function () {
 	indexGetbowen()
 	//杂七杂八的知识点
 	indexGetzaba()
-
+	//学习笔记
+	indexGetbiji()
+	//电影
 	indexGetMovie()
 });
 function indexGetbowen(){
@@ -19,6 +21,13 @@ function indexGetzaba() {
 	getListData.search_type = '杂七杂八'
 
 	getListData.listDemo = '#ID_zaqizaba'
+	getListData.list_getdata();
+}
+function indexGetbiji() {
+	getListData.limit = 3
+	getListData.search_type = '笔记'
+
+	getListData.listDemo = '#ID_biji'
 	getListData.list_getdata();
 }
 function indexGetMovie(){

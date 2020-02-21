@@ -26,6 +26,15 @@
 </div>
 <script>
     var dNews = '';
+    $(function () {
+        setInterval(()=>{
+            UNNIAPP_getOnlineNr()
+            console.log('获取新闻===' + (new Date))
+            setTimeout(()=>{
+                UNNIAPP_createNews()
+            },1000*5)
+        },1000*60*60)
+    })
     function UNNIAPP_getOnlineNr() {
         let data = {
             pageSize: 10,
