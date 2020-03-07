@@ -22,6 +22,7 @@
 
 	$table = "zhishidian";
 	$dba='test';
+	//$dba='sfydb_6263399';
 
 	$condition = "1=1";
 

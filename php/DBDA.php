@@ -1,10 +1,12 @@
 <?php
 class DBDA
 {
-	public $host = "localhost";//服务器地址
+	/**/public $host = "localhost";//服务器地址
 	public $uid = "root";//用户名
-	public $pwd = "";//密码
-
+	public $pwd = "123456";//密码
+/*    public $host = "127.0.0.1";//服务器地址
+    public $uid = "sfydb_6263399";//用户名
+    public $pwd = "OqRTzcXhsNJbPY58";//密码*/
 
 	public $conn;//连接对象
 	//操作数据库方法

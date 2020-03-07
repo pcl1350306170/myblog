@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>大数据页面2</title>
+</head>
+<link rel="stylesheet" type="text/css" href="../../Resources/js/bootstrap-3.3.7-dist/css/bootstrap.css"/>
+<link rel="stylesheet" type="text/css" href="../../Resources/js/layui/css/layui.css"/>
+<link rel="stylesheet" type="text/css" href="../../Resources/js/liMarquee/liMarquee.css"/>
+<link rel="stylesheet" type="text/css" href="./css/page.css"/>
+
+<script src="../../Resources/js/jquery/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../Resources/js/liMarquee/jquery.liMarquee.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../Resources/js/echarts.js"></script>
+<script src="../../Resources/js/layui/layui.all.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../Resources/js/bootstrap-3.3.7-dist/js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript"
+        src="http://api.map.baidu.com/api?v=2.0&ak=4IU3oIAMpZhfWZsMu7xzqBBAf6vMHcoa">
+</script>
+
+<script src="./js/data.js" type="text/javascript" charset="utf-8"></script>
+<script src="./js/EchartsCreate.js" type="text/javascript" charset="utf-8"></script>
+<script src="./js/waveProgressBar.js" type="text/javascript" charset="utf-8"></script>
+<body>
+<div class="div-body">
+    <!--左 === START-->
+    <div class="body-left div-1">
+        <!--左-事件数量-->
+        <div class="left-1 div-1-1">
+            <div class="title">事件数量</div>
+            <div class="nr">
+                <div class="x2-e">
+                    <div class="x2-e-title">事件总数</div>
+                    <div class="x2-e-yuan">300</div>
+                </div>
+                <div class="x2-e">
+                    <div class="x2-e-title">处理中事件数</div>
+                    <div class="x2-e-yuan">170</div>
+                </div>
+                <div class="x2-e">
+                    <div class="x2-e-title">已处理事件数</div>
+                    <div class="x2-e-yuan">130</div>
+                </div>
+            </div>
+        </div>
+        <!--左-事件近30天区域分布-->
+        <div class="left-2 div-1-1">
+            <div class="title">事件近30天区域分布</div>
+            <div class="nr" id="id_RegionalDistributionEvents30Day"></div>
+        </div>
+        <!--左-事件近30天分类统计-->
+        <div class="left-3 div-1-1">
+            <div class="title">事件近30天分类统计</div>
+            <div class="nr" id="id_ClassifiedStatisticsEvent30Days"></div>
+        </div>
+        <!--左-事件近7天新增数-->
+        <div class="left-4 div-1-1">
+            <div class="title">事件近7天新增数</div>
+            <div class="nr" id="id_NewNumberIn7Days"></div>
+        </div>
+    </div>
+    <!--左 === END-->
+    <!--中 ==== START-->
+    <div class="body-center div-1">
+        <!--中-地图-->
+        <div class="center-1 div-1-1">
+            <div id="map" class="center-map"></div>
+        </div>
+        <!--中-事件动态-->
+        <div class="center-2 div-1-1">
+            <div class="title">事件动态</div>
+            <div class="nr">
+                <div class="ul-TownshipStreet">
+                    <ul>
+                        <li>
+                            <span>社区1</span>
+                            <span>国庆期间景区垃圾投诉</span>
+                            <span>垃圾分类</span>
+                            <span>2019-10-14</span>
+                            <span>未处理</span>
+                        </li>
+                        <li>
+                            <span>社区1</span>
+                            <span>国庆期间景区垃圾投诉</span>
+                            <span>垃圾分类</span>
+                            <span>2019-10-14</span>
+                            <span>未处理</span>
+                        </li>
+                        <li>
+                            <span>社区1</span>
+                            <span>国庆期间景区垃圾投诉</span>
+                            <span>垃圾分类</span>
+                            <span>2019-10-14</span>
+                            <span>未处理</span>
+                        </li>
+                        <li>
+                            <span>社区1</span>
+                            <span>国庆期间景区垃圾投诉</span>
+                            <span>垃圾分类</span>
+                            <span>2019-10-14</span>
+                            <span>未处理</span>
+                        </li>
+                        <li>
+                            <span>社区1</span>
+                            <span>国庆期间景区垃圾投诉</span>
+                            <span>垃圾分类</span>
+                            <span>2019-10-14</span>
+                            <span>未处理</span>
+                        </li>
+                        <li>
+                            <span>社区1</span>
+                            <span>国庆期间景区垃圾投诉</span>
+                            <span>垃圾分类</span>
+                            <span>2019-10-14</span>
+                            <span>未处理</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--中 ==== END-->
+    <!--右 ==== START-->
+    <div class="body-right div-1">
+        <!--右-综治事件数量-->
+        <div class="right-1 div-1-1">
+            <div class="title">综治事件数量</div>
+            <div class="nr" id="id_NumberComprehensiveTreatmentIncidents">
+                <div class="x2-e">
+                    <div class="x2-e-title">综治事件数量</div>
+                    <div class="x2-e-yuan">
+                        300
+                        <div class="bfb">100%</div>
+                    </div>
+
+                </div>
+                <div class="x2-e">
+                    <div class="x2-e-title">处理中事件数</div>
+                    <div class="x2-e-yuan">170
+                        <div class="bfb">40%</div>
+                    </div>
+                </div>
+                <div class="x2-e">
+                    <div class="x2-e-title">已处理事件数</div>
+                    <div class="x2-e-yuan">130
+                        <div class="bfb">60%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--右-综治事件近30天区域分布-->
+        <div class="right-2 div-1-1">
+            <div class="title">综治事件近30天区域分布</div>
+            <div class="nr" id="id_RegionalDistributionlast30Days"></div>
+        </div>
+        <!--右-综治事件近30天分类统计-->
+        <div class="right-3 div-1-1">
+            <div class="title">综治事件近30天分类统计</div>
+            <div class="nr" id="id_ClassifiedStatisticsTreatmentIncidents30Days"></div>
+        </div>
+        <!--右-综治事件近7天新增数-->
+        <div class="right-4 div-1-1">
+            <div class="title">综治事件近7天新增数</div>
+            <div class="nr" id="id_ComprehensiveTreatmentIncident7DaysNumber"></div>
+        </div>
+    </div>
+    <!--右 ==== END-->
+</div>
+</body>
+</html>
+<script type="text/javascript">
+  // 百度地图API功能
+  var map = new BMap.Map("map");    // 创建Map实例
+  map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);  // 初始化地图,设置中心点坐标和地图级别
+  //添加地图类型控件
+  map.addControl(new BMap.MapTypeControl({
+    mapTypes: [
+      BMAP_NORMAL_MAP,
+      BMAP_HYBRID_MAP
+    ]
+  }));
+</script>
+
+<script type="text/javascript"
+        src="http://api.map.baidu.com/api?v=2.0&ak=4IU3oIAMpZhfWZsMu7xzqBBAf6vMHcoa">
+</script>

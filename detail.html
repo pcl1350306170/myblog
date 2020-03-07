@@ -88,7 +88,9 @@
 
                     $(".detail-title").html(r[0]['title'])
                     $(".detail-time").html(r[0]['tjsj'])
-                    $(".detail-nr").html(r[0]['nr'])
+                    let nr = r[0]['nr']
+                    //nr=nr.replace(/http:\/\/localhost:8888\/mywww/g,".")
+                    $(".detail-nr").html(nr)
 
                   setTimeout(()=>{
                       createCanvasFun()

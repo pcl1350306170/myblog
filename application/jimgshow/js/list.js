@@ -6,6 +6,7 @@ var getListData = {
     search_gjz: '',
     search_type: '',
     listDemo: "#mainContainerList",
+    listData: null,
     list_getcount () {
         let _this = this
         $.ajax({
@@ -20,7 +21,7 @@ var getListData = {
 
                     laypage.render({
                         elem: 'pagesdemo'
-                        , count: _this.total
+                        , count: Math.ceil(_this.total / _this.limit)*10
                         , first: '首页'
                         , last: '尾页'
                         , prev: '<em>←</em>'
@@ -60,24 +61,68 @@ var getListData = {
             dataType: 'text',
             success: function (data) {
                 let r = eval('(' + data + ')')
+                _this.listData = r
 
                 let h = '';
                 for (let i = 0; i < r.length; i++) {
 
                     let s = r[i]['srcs'].split("\n")
+                    let isdownload =r[i]['isdownload']
+                    let isd = ''
+                    if(isdownload === '1'){
+                        isd = 'display:none;'
+                    }
                     console.log(s)
                     h += '<div class="card">\n' +
-                    '            <div class="img">\n' +
+                    '            <div class="img" onclick="getListData.showimgs(\''+i+'\')">\n' +
                     '                <img src="'+s[0]+'" alt="">\n' +
                     '            </div>\n' +
                     '            <div class="name">\n' +
                     '                '+r[i]['title']+'\n' +
+                        '               <button type="button" class="layui-btn layui-btn-danger layui-btn-radius" onclick="getListData.del(\''+r[i]['id']+'\',this)">删除</button>' +
+                        '<button type="button" style="'+isd+'" class="layui-btn layui-btn-default layui-btn-radius" onclick="getListData.hasdown(\''+r[i]['id']+'\',this)">已下载</button>' +
                     '            </div>\n' +
                     '        </div>'
                 }
 
                 $(_this.listDemo).html(h);
             }
+        });
+    },
+    showimgs(i){
+        let _this = this
+        let srcs =_this.listData[i]["srcs"]
+
+        $("#copytextarea").val(srcs)
+        let copyText = $("#copytextarea");//获取对象
+        copyText.select();//选择
+        document.execCommand("Copy");//执行复制
+
+    },
+    del(id,obj){
+        const _this = this
+        $.ajax({
+            url: _this.requestPHP, // 这是当前服务器的地址
+            type: 'POST',
+            data: {act: 'del',id:id},
+            dataType: 'text',
+            success: function (data) {
+                $(obj).parent().parent().remove()
+            }
+
+        });
+    },
+    hasdown(id,obj){
+        const _this = this
+        $.ajax({
+            url: _this.requestPHP, // 这是当前服务器的地址
+            type: 'POST',
+            data: {act: 'hasdown',id:id},
+            dataType: 'text',
+            success: function (data) {
+                $(obj).hide()
+            }
+
         });
     }
 }

@@ -1,0 +1,8 @@
+$(()=>{
+  EchartsCreate.init();
+})
+
+
+
+
+

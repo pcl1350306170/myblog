@@ -1,47 +1,61 @@
 <?php
-	header('Access-Control-Allow-Origin:*');
-	header('Access-Control-Allow-Methods:POST');
-	header('Access-Control-Allow-Headers:x-requested-with,content-type');
-	require_once('DBDA.php');
+header('Access-Control-Allow-Origin:*');
+header('Access-Control-Allow-Methods:POST');
+header('Access-Control-Allow-Headers:x-requested-with,content-type');
+require_once('DBDA.php');
 
-	session_start();
-	session_write_close();
+session_start();
+session_write_close();
 
-	$db=new DBDA();
+$db=new DBDA();
 
-	$pagesize 	= $_POST['pagesize'];
-	$page 		= $_POST['page'];
-	$limit		= $_POST['limit'];
+$pagesize 	= $_POST['pagesize'];
+$page 		= $_POST['page'];
+$limit		= $_POST['limit'];
 
-	$table = "himgs";
-	$dba='test';
-	//»ñÈ¡²éÑ¯×Ö¶Î-------¿ªÊ¼
-	$search_gjz	= $_POST['search_gjz'];
-	$condition = "1=1";
-	//×éÖ¯²éÑ¯Ìõ¼þ====¿ªÊ¼
-	if($search_gjz != ""){
-		$condition .= " AND (type LIKE '%".$search_gjz."%' or name LIKE '%".$search_gjz."%') ";
-	}
+$table = "himgs";
+$dba='test';
+//èŽ·å–æŸ¥è¯¢å­—æ®µ-------å¼€å§‹
+$search_gjz	= $_POST['search_gjz'];
+$condition = "1=1";
+//ç»„ç»‡æŸ¥è¯¢æ¡ä»¶====å¼€å§‹
+if(true){
+    $condition .= " AND fenlei LIKE '%æ¸…çº¯%' ";
+}
 
-	$act 		= $_POST['act'];
+$act 		= $_POST['act'];
 
-	switch ($act) {
-		case "gcount":
-			$sql = "select count(1) from $table where $condition";
-			$lei=$db->Query($sql);
-			echo $lei[0];
-			break;
-		case "glist":
-			$page 		= $_POST['page'];
-			$sql = "select id,title,srcs,tjsj,fenlei from $table where $condition order by id desc limit ".(($page-1)*$limit).",".$limit;
-			$lei=$db->JsonQuery($sql,1,$dba);
-			echo $lei;
-			break;
-			default:
-				
-				break;
+switch ($act) {
+    case "gcount":
+        $sql = "select count(1) from $table where $condition";
+        $lei=$db->Query($sql);
+        echo $lei[0];
+        break;
+    case "glist":
+        $page 		= $_POST['page'];
+        $sql = "select id,title,srcs,tjsj,fenlei,isdownload from $table where $condition order by id desc limit ".(($page-1)*$limit).",".$limit;
+        $lei=$db->JsonQuery($sql,1,$dba);
+        echo $lei;
+        break;
+    case "del":
+        $id 		= $_POST['id'];
+        $SQL = "delete from $table where id='".$id."'";
 
-	}
+        $lei=$db->Query($SQL,2);
+        echo $lei;
+        break;
+    case "hasdown":
+        $id 		= $_POST['id'];
+        $SQL = "update $table set isdownload = '1' where id='".$id."'";
+
+        $lei=$db->Query($SQL,2);
+        echo $lei;
+        break;
+    default:
+
+        break;
+
+}
 
 
 

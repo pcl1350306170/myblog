@@ -101,9 +101,12 @@ var getListData = {
 
 				let h = '';
 				for (let i = 0; i < r.length; i++) {
+					let src = r[i].image
+					src=src.replace(/http:\/\/localhost:8888\/mywww/g,".")
+
 					h += '<li class="clearfix article_list">\n' +
 						'        <a  onclick="showImg(this)" class="article_list_img">\n' +
-						'            <img src="' + r[i].image + '" onerror="this.src=\'./img/20191130171408.png\'">\n' +
+						'            <img src="' + src + '" onerror="this.src=\'./img/20191130171408.png\'">\n' +
 						'        </a>\n' +
 						'        <h3>' + r[i].name + '</h3>\n' +
 						'        <p>' + r[i]['path'] + '</p>\n' +
@@ -145,9 +148,11 @@ var getListData = {
 					for (let ii = 0; ii < g.length; ii++) {
 						tagh += '<span class="layui-badge layui-bg-blue" style="margin: 10px">' + g[ii] + '</span>'
 					}
+					let src = r[i].images
+					//src=src.replace(/http:\/\/localhost:8888\/mywww/g,".")
 					h += '<li class="clearfix article_list">\n' +
 						'        <a onclick="showImg(this)" class="article_list_img">\n' +
-						'            <img src="' + r[i].images + '" onerror="this.src=\'./img/kongzhishi.png\'">\n' +
+						'            <img src="' + src + '" onerror="this.src=\'./img/kongzhishi.png\'">\n' +
 						'        </a>' +
 						'        <h3 onclick="showDetail(\'' + r[i]['id'] + '\')">' + r[i].title + '</h3>\n' +
 						'        <p>' + tagh + '</p>\n' +
@@ -183,16 +188,19 @@ function showDetail(id){
 }
 function showImg(obj){
 	let src = $(obj).find('img').attr('src')
-	let n = '<img src="'+src+'" style="max-width: 1500px">'
+	let n = '<img onclick="closeShowImg()" src="'+src+'" style="max-width: 80%;">'
 	//页面层-图片
 
 	layer.open({
 		type: 1,
 		title: false,
-		closeBtn: 0,
+		closeBtn: 1,
 		area: ['auto'],
 		skin: 'layui-layer-nobg', //没有背景色
 		shadeClose: true,
 		content: n
 	});
+}
+function closeShowImg() {
+	layer.closeAll()
 }

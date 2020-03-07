@@ -14,7 +14,8 @@
 	$limit		= $_POST['limit'];
 
 	$table = "movie";
-	$dba='test';
+    $dba='test';
+	//$dba='sfydb_6263399';
 	//获取查询字段-------开始
 	$search_gjz	= $_POST['search_gjz'];
 	$condition = "1=1";
