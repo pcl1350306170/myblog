@@ -3,6 +3,7 @@
 const requestHttp = 'http://localhost:8888/mine/a-mine/myblog/php/';
 //http://pangchunlei.xyz/blog/php/
 //http://localhost:8888/mine/a-mine/myblog/php/
+//http://ftp6263399.host108.abeiyun.cn/blog/php/
 const ajaxSavemysqlPhp = 'http://localhost:8888/mywww/php/savemysql.php'
 const ajaxFileDealPhp = 'http://localhost:8888/mywww/php/requestOnline.php'
 
