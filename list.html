@@ -49,6 +49,9 @@
             getListData.search_type = '笔记';
         }else if (Number(paras.type) === 6) {
             getListData.search_type = '太平广记';
+        }else{
+            getListData.search_gjz = paras.type;
+            getListData.search_type = '';
         }
 		$('.header_logo a h2').html(getListData.search_type)
 
@@ -79,27 +82,28 @@
         </div>
         <div class="header_nav">
             <ul class="clearfix">
-                <li><a href="#">个人博客模板分享</a></li>
-                <li class="have_second"><a href="#">企业官网模板分享</a>
-
+                <li><a href="./index.html">博客首页</a></li>
+                <li class="have_second"><a href="#">大屏模板</a>
                     <ul class="nav_second">
                         <i></i>
-                        <li><a href="#">律所类模板分享</a></li>
-                        <li><a href="#">律所类模板分享</a></li>
-                        <li><a href="#">律所类模板分享</a></li>
+                        <li><a href="./application/bigpage/dataPage2/page.html" target="_blank">地图大数据页</a></li>
+                        <li><a href="./application/bigpage/dataPage/page.html" target="_blank">区域地图大数据页</a></li>
+                        <li><a href="#">模板分享</a></li>
                     </ul>
 
                 </li>
                 <li class="have_second">
-                    <a href="#">学习笔记分享</a>
+                    <a href="./list.html?type=笔记">学习笔记</a>
                     <ul class="nav_second">
                         <i></i>
-                        <li><a href="#">CSS笔记</a></li>
-                        <li><a href="#">JS笔记</a></li>
-                        <li><a href="#">Jquery笔记</a></li>
+                        <li><a href="./list.html?type=vue">前端vue笔记</a></li>
+                        <li><a href="./list.html?type=js">前端js\css笔记</a></li>
+                        <li><a href="./list.html?type=5">java笔记</a></li>
+                        <li><a href="./list.html?type=计算机组成原理">计算机组成原理</a></li>
                     </ul>
                 </li>
-                <li><a href="#">随手笔记</a></li>
+                <li><a href="./list.html?type=1">我的博文</a></li>
+                <li><a href="./about_me.html">关于我</a></li>
             </ul>
         </div>
         <div class="header_search">

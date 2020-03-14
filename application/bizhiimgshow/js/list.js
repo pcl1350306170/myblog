@@ -64,12 +64,13 @@ var getListData = {
                 let h = '';
                 for (let i = 0; i < r.length; i++) {
 
+                    let id='ID_'+i
                     h += '<div class="card">\n' +
                     '            <div class="img">\n' +
-                    '                <img src="'+r[i]['src']+'" alt="">\n' +
+                    '                <img src="'+r[i]['src']+'" alt="" onclick="getListData.copythisid(\''+id+'\')">\n' +
                     '            </div>\n' +
                     '            <div class="name">\n' +
-                    '                <input type="text" value="'+r[i]['src']+'">\n' +
+                    '                <input type="text" value="'+r[i]['src']+'" id="'+id+'">\n' +
                      '               <button type="button" class="layui-btn layui-btn-danger layui-btn-radius" onclick="getListData.del(\''+r[i]['id']+'\',this)">删除</button>' +
                     '            </div>\n' +
                     '        </div>'
@@ -79,6 +80,11 @@ var getListData = {
                 $(".gototop").click()
             }
         });
+    },
+    copythisid(id){
+        var Url=document.getElementById(id);
+        Url.select(); // 选择对象
+        document.execCommand("Copy"); // 执行浏览器复制命令
     },
     del(id,obj){
         const _this = this
