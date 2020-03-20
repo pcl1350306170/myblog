@@ -2,12 +2,12 @@
  *  修改的js页面
  */
 var ajaxUrl = requestHttp + 'requestData_zsd.php',
-	systemName = '',
+	showSuccess = true,
 	menuId = '';
 var gjcArray = [];
 $(function () {
 
-	console.log('shift + ctrl + ;  ===== 备份数据库')
+	console.log('shift + ctrl + ;  ===== 保存')
 	console.log('shift + ctrl + F10  读取文件生成一个文件')
 
 
@@ -26,7 +26,8 @@ $(function () {
 
 		// shift + ctrl + ;  备份数据库
 		if(shiftKey && ctrlKey && e.keyCode == 186) {
-			loadSavemysql()
+			showSuccess = false
+			saveEvent()
 		}
 		// shift + ctrl + F10  读取文件生成一个文件
 		if(shiftKey && ctrlKey && e.keyCode == 121) {
@@ -128,10 +129,13 @@ function saveEvent(obj) {
 		data: psotom,
 		success: function (data) {
 			if (data == '1') {
-				layer.alert('修改成功', {icon: 1}, function (index) {
-					location = location;
-					//operation("list");
-				});
+				if(showSuccess){
+					layer.alert('修改成功', {icon: 1}, function (index) {
+						location = location;
+						//operation("list");
+					});
+				}
+				showSuccess = true
 			} else {
 				layer.alert('添加失败', {icon: 2});
 			}
