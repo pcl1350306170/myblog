@@ -153,7 +153,7 @@ function createCanvasFun(type){
 	setInterval(()=>{
 		mousePosition.x = canvas.width * 0.2 * Math.random() / 2;
 		mousePosition.y = canvas.height* Math.random() / 2;
-		console.log(mousePosition, Math.random())
+		//console.log(mousePosition, Math.random())
 	},1000 * 10)
 
 	createDots();

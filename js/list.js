@@ -188,15 +188,15 @@ function showDetail(id){
 }
 function showImg(obj){
 	let src = $(obj).find('img').attr('src')
-	let n = '<img onclick="closeShowImg()" src="'+src+'" style="max-width: 80%;">'
+	let n = '<div class="layer-showimg" onclick="closeShowImg()"><img src="'+src+'"></div>'
 	//页面层-图片
 
 	layer.open({
 		type: 1,
 		title: false,
 		closeBtn: 1,
-		area: ['auto'],
-		skin: 'layui-layer-nobg', //没有背景色
+		area : ['70%','80%'],
+		skin: 'win-layer-showimg', //没有背景色
 		shadeClose: true,
 		content: n
 	});
