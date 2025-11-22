@@ -73,7 +73,7 @@ function saveEvent(obj) {
 			}
 		}
 		field_images = imgs[0]
-		field_imgname = imgs[0].replace('http://localhost:8888/mywww/zsdimage/','')
+		field_imgname = imgs[0].replace('http://localhost:80/blog/zsdimage/','')
 	}
 
 	console.log(imgs);
@@ -126,7 +126,8 @@ function loadSavemysql(){
 				console.log(r[index])
 				h += '<option value="'+r[index]+'">'+r[index]+'</option>'
 			}
-			h += ' </select>'
+			h += ' </select>' +
+				'<input class="form-control" style="width:50%;margin: 0 auto;" id="pathBackup" placeholder="导入表的路径">'
 
 			let h2 = '<div style="width: 100%;height: 15vh;text-align: center;line-height: 15vh;">'+h+'</div>'
 			layer.open({
@@ -137,11 +138,14 @@ function loadSavemysql(){
 				closeBtn:0,    //不显示关闭
 				btnAlign : 'c',//按钮居中
 				content:h2 ,
-				btn:["备份","关闭"],
+				btn:["备份",'导入',"关闭"],
 				yes : function (index, layero){
 					saveDatatable()
 					layer.close(index);
 				},btn2 : function (index, layero){
+					// 导入
+					loadDatatable()
+				},btn3 : function (index, layero){
 					// 取消
 					layer.close(index);
 				}
@@ -149,6 +153,24 @@ function loadSavemysql(){
 		}
 	});
 
+}
+function loadDatatable() {
+	let path = $("#pathBackup").val()
+	let psotom = {
+		act: 'restoreTable',
+		path: path	// 数据库表名
+	}
+	$.ajax({
+		url: ajaxSavemysqlPhp,
+		type: "POST",
+		dataType: "TEXT",
+		data: psotom,
+		success: function (data) {
+			console.log(data)
+			layer.alert(data, {icon: 1});
+			$("#pathBackup").val('');
+		}
+	});
 }
 // 备份数据库
 function saveDatatable(){

@@ -15,9 +15,23 @@
     text-align: center;
     margin-top: 30px; }
 
+.dom-iframe {
+  width: 100%;
+  height: 100%; }
+  .dom-iframe iframe {
+    width: 100%;
+    height: 100%; }
+
 body {
-  background-image: url("https://pic3.zhimg.com/80/v2-c7c774d4fb4e4ec7fe058563564c3c3e_hd.jpg");
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
   background-size: 100% 100%;
   background-repeat: no-repeat; }
+
+body::after {
+  background-image: url("../../../img/992.jpg");
+  opacity: 0.3; }
 
 /*# sourceMappingURL=common.css.map */

@@ -6,6 +6,30 @@ var getListData = {
 	search_gjz: '',
 	search_type: '杂七杂八',
 	listDemo: "#mainContainerList",
+	load(){
+		let h = '<div class="demo-load">\n' +
+			'    <div class=\'loading-anim\'>\n' +
+			'        <div class=\'border out\'></div>\n' +
+			'        <div class=\'border in\'></div>\n' +
+			'        <div class=\'border mid\'></div>\n' +
+			'        <div class=\'circle\'>\n' +
+			'            <span class=\'dot\'></span>\n' +
+			'            <span class=\'dot\'></span>\n' +
+			'            <span class=\'dot\'></span>\n' +
+			'            <span class=\'dot\'></span>\n' +
+			'            <span class=\'dot\'></span>\n' +
+			'            <span class=\'dot\'></span>\n' +
+			'            <span class=\'dot\'></span>\n' +
+			'            <span class=\'dot\'></span>\n' +
+			'            <span class=\'dot\'></span>\n' +
+			'            <span class=\'dot\'></span>\n' +
+			'            <span class=\'dot\'></span>\n' +
+			'            <span class=\'dot\'></span>\n' +
+			'        </div>\n' +
+			'    </div>\n' +
+			'</div>'
+		$("body").before(h)
+	},
 	list_getMoviecount(){
 		let _this = this
 		_this.requestPHP = requestHttp + 'requestData_movie.php'
@@ -101,9 +125,9 @@ var getListData = {
 
 				let h = '';
 				for (let i = 0; i < r.length; i++) {
-					let src = r[i].image
-					src=src.replace(/http:\/\/localhost:8888\/mywww/g,".")
+					let src = './movie/images/'+r[i].imgname
 
+					console.log(src)
 					h += '<li class="clearfix article_list">\n' +
 						'        <a  onclick="showImg(this)" class="article_list_img">\n' +
 						'            <img src="' + src + '" onerror="this.src=\'./img/20191130171408.png\'">\n' +
@@ -121,6 +145,7 @@ var getListData = {
 
 				$(_this.listDemo).html(h);
 				$(".gototop").click()
+				$(".demo-load").hide()
 			}
 		});
 	},
@@ -148,8 +173,9 @@ var getListData = {
 					for (let ii = 0; ii < g.length; ii++) {
 						tagh += '<span class="layui-badge layui-bg-blue" style="margin: 10px">' + g[ii] + '</span>'
 					}
-					let src = r[i].images
-					//src=src.replace(/http:\/\/localhost:8888\/mywww/g,".")
+					let src = './zsdimage/'+r[i].imgname
+					if(src.indexOf('cnblogs.com/blog')>-1)src = r[i].imgname
+					//src=src.replace(/http:\/\/localhost:80\/mywww/g,".")
 					h += '<li class="clearfix article_list">\n' +
 						'        <a onclick="showImg(this)" class="article_list_img">\n' +
 						'            <img src="' + src + '" onerror="this.src=\'./img/kongzhishi.png\'">\n' +
@@ -168,6 +194,7 @@ var getListData = {
 
 				$(_this.listDemo).html(h);
 				$(".gototop").click()
+				$(".demo-load").hide()
 			}
 		});
 	},
@@ -182,6 +209,7 @@ var getListData = {
 		_this.list_getcount();
 	},
 }
+
 
 function showDetail(id){
 	window.open('detail.html?id='+id)
@@ -200,6 +228,19 @@ function showImg(obj){
 		shadeClose: true,
 		content: n
 	});
+
+	let w = $(".win-layer-showimg .layer-showimg img").width()
+	let h = $(".win-layer-showimg .layer-showimg img").height()
+	console.log(w,h)
+	if(w>h){
+		$(".win-layer-showimg .layer-showimg img").css({
+			'width':'80%'
+		})
+	}else{
+		$(".win-layer-showimg .layer-showimg img").css({
+			'height':'100%'
+		})
+	}
 }
 function closeShowImg() {
 	layer.closeAll()

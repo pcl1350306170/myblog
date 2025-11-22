@@ -100,7 +100,7 @@ function saveEvent(obj) {
 			}
 		}
 		field_images = imgs[0]
-		field_imgname = imgs[0].replace('http://localhost:8888/mywww/zsdimage/','')
+		field_imgname = imgs[0].replace('http://localhost:80/blog/zsdimage/','')
 	}
 
 	console.log(imgs);
